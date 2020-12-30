@@ -1,0 +1,55 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * product_tags
+#
+# Translators:
+# Maksym Nastenko <m.nastenko@runbins.com>, 2020
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: Maksym Nastenko <m.nastenko@runbins.com>, 2020\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: uk\n"
+
+
+#. module: product_tags
+#: model:ir.model.fields,field_description:product_tags.field_product_template__product_tag_ids
+#: model:ir.model.fields,field_description:product_tags.field_product_product__product_tag_ids
+msgid "Tags"
+msgstr "Теги"
+
+#. module: product_tags
+#: model:ir.model.fields,field_description:product_tags.field_product_tag__name
+msgid "Name"
+msgstr "Ім'я"
+
+#. module: product_tags
+#: model:ir.model.fields,field_description:product_tags.field_product_tag__active
+msgid "Active"
+msgstr "Активно"
+
+#. module: product_tags
+#: model_terms:ir.ui.view,arch_db:product_tags.view_product_tag_form
+#: model_terms:ir.ui.view,arch_db:product_tags.view_product_tag_search
+msgid "Archived"
+msgstr "Заархівовано"
+
+#. module: product_tags
+#: model_terms:ir.ui.view,arch_db:product_tags.view_product_tag_form
+msgid "Tag Name"
+msgstr "Ім'я тега"
+
+#. module: product_tags
+#: model_terms:ir.ui.view,arch_db:product_tags.view_product_tag_search
+msgid "All"
+msgstr "Всі"
+
+#. module: product_tags
+#: model:ir.ui.menu,name:product_tags.menu_product_tag
+#: model:ir.actions.act_window,name:product_tags.action_product_tag
+msgid "Product Tags"
+msgstr "Теги продуктів"
+

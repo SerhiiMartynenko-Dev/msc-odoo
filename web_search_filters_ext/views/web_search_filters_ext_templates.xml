@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <template id="assets_backend" inherit_id="web.assets_backend" name="Web Search Filters Ext: Backend Assets">
+        <xpath expr="." position="inside">
+
+            <script type="text/javascript" src="/web_search_filters_ext/static/src/js/views/action_model.js"/>
+            <script type="text/javascript" src="/web_search_filters_ext/static/src/js/views/control_panel/control_panel_model_extension.js"/>
+
+            <!--
+                @TODO: migrate
+
+            <link rel="stylesheet" type="text/css" href="/web_search_filters_ext/static/src/css/bootstrap.dropdown-menu.multilevel.css" />
+            <link rel="stylesheet" type="text/less" href="/web_search_filters_ext/static/src/scss/web_search_filters_ext.scss" />
+            <script type="text/javascript" src="/web_search_filters_ext/static/src/js/views/control_panel/search/filter_menu.js"/>
+            <script type="text/javascript" src="/web_search_filters_ext/static/src/js/views/control_panel/search/search_filters.js"/>
+            -->
+        </xpath>
+    </template>
+
+
+</odoo>
+

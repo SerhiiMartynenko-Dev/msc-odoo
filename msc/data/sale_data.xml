@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <data noupdate="1">
+
+        <record id="decimal_precision_discount_percentage_sale_order" forcecreate="True" model="decimal.precision">
+            <field name="name">Decimal Precision for Discount Percentage for Sales Order</field>
+            <field name="digits">4</field>
+        </record>
+
+    </data>
+
+
+</odoo>

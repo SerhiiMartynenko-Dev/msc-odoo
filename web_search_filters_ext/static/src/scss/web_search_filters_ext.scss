@@ -1,0 +1,71 @@
+.o_filter_condition
+{
+    .o_searchview_extended_prop_o2m
+    {
+        margin-top: 3px;
+        display: none;
+    }
+
+    .many2x_filter
+    {
+        .o_field_widget
+        {
+            width: 100%;
+        }
+
+        .o_field_many2manytags
+        {
+            padding: 0 0 0 4px;
+
+            .o_field_many2one
+            {
+                .o_input_dropdown
+                {
+                    input.o_input
+                    {
+                        box-shadow: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.filter_dialog_content
+{
+    list-style: none;
+
+
+    .o_filter_condition
+    {
+        padding: 0;
+
+
+        .o_or_filter
+        {
+            font-weight: bold;
+        }
+
+        .o_searchview_extended_prop_op
+        {
+            margin-top: 4px;
+        }
+
+        .o_searchview_extended_prop_value
+        {
+            margin-top: 8px;
+
+            .o_datepicker:first-child
+            {
+                float: left;
+                width: 48%;
+            }
+            .o_datepicker:last-child
+            {
+                float: right;
+                width: 48%;
+            }
+        }
+    }
+}
+

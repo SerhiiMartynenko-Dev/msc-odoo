@@ -1,0 +1,45 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * web_search_filters_ext
+#
+# Translators:
+# Maksym Nastenko <m.nastenko@runbins.com>, 2020
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: Maksym Nastenko <m.nastenko@runbins.com>, 2020\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: uk\n"
+
+
+#. module: web_search_filters_ext
+#. openerp-web
+#: code:addons/web_search_filters_ext/static/src/js/views/control_panel/search/filter_menu.js:222
+#, python-format
+msgid "Apply Filter"
+msgstr "Застосувати фільтр"
+
+#. module: web_search_filters_ext
+#. openerp-web
+#: code:addons/web_search_filters_ext/static/src/js/views/control_panel/search/filter_menu.js:234
+#, python-format
+msgid "Invalid 'dialog'-type filter definition!"
+msgstr "Помилка оголошення фільтра типу 'dialog'!"
+
+#. module: web_search_filters_ext
+#. openerp-web
+#: code:addons/web_search_filters_ext/static/src/js/views/control_panel/search/filter_menu.js:243
+#, python-format
+msgid "Invalid 'select'-type filter definition!"
+msgstr "Помилка оголошення фільтра типу 'select'!"
+
+#. module: web_search_filters_ext
+#. openerp-web
+#: code:addons/web_search_filters_ext/static/src/js/views/control_panel/search/search_facet.js:20
+#, python-format
+msgid " and "
+msgstr " та "
+

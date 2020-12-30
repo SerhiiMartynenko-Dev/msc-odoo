@@ -1,0 +1,17 @@
+#msc_root
+{
+    .o_field_widget
+    {
+        &.o_field_many2manytags
+        {
+            .badge
+            {
+                .o_badge_text
+                {
+                    max-width: 100% !important;
+                    white-space: normal !important;
+                }
+            }
+        }
+    }
+}

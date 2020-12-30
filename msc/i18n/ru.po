@@ -1,0 +1,18 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * msc
+#
+# Translators:
+# Maksym Nastenko <m.nastenko@runbins.com>, 2020
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: Maksym Nastenko <m.nastenko@runbins.com>, 2020\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: ru\n"
+
+
+
