@@ -15,4 +15,66 @@ msgstr ""
 "Language: ru\n"
 
 
+#. module: msc
+#: model:ir.actions.report,name:msc.action_receipt
+msgid "Receipt"
+msgstr "Чек"
+
+#. module: msc
+#: model_terms:ir.ui.view,arch_db:msc.view_move_form
+msgid "Print Receipt"
+msgstr "Печатать Чек"
+
+#. module: msc
+#: code:addons/msc/models/account_move.py:17
+#, python-format
+msgid "Receipt not paid yet"
+msgstr "Чек не оплачен"
+
+#. module: msc
+#: model:ir.model.fields,field_description:msc.field_account_move__date_paid
+msgid "Paid Date"
+msgstr "Дата оплаты"
+
+#. module: msc
+#: model:ir.actions.report,name:msc.action_product_label_report
+#: model:ir.actions.server,name:msc.action_product_label
+msgid "Product Label"
+msgstr "Ценник"
+
+#. module: msc
+#: model_terms:ir.ui.view,arch_db:msc.purchase_order_form
+#: code:addons/msc/wizard/wizard_print_product_label.py:35
+msgid "Print labels for products"
+msgstr "Печатать ценники"
+
+#. module: msc
+#: model:ir.model.fields,field_description:msc.field_msc_wizard_print_product_label__mode
+msgid "Pint labels mode"
+msgstr "Печатать ценники"
+
+#. module: msc
+#: model:ir.model.fields.selection,name:msc.selection__msc_wizard_print_product_label__mode__all
+msgid "For all products"
+msgstr "Всех товаров"
+
+#. module: msc
+#: model:ir.model.fields.selection,name:msc.selection__msc_wizard_print_product_label__mode__select
+msgid "Select products"
+msgstr "Выбрать товары"
+
+#. module: msc
+#: code:addons/msc/wizard/wizard_print_product_label.py:55
+msgid "Products"
+msgstr "Товары"
+
+#. module: msc
+#: model_terms:ir.ui.view,arch_db:msc.view_wizard_print_product_label_form
+msgid "Print"
+msgstr "Печатать"
+
+#. module: msc
+#: model_terms:ir.ui.view,arch_db:msc.view_wizard_print_product_label_form
+msgid "Cancel"
+msgstr "Отмена"
 

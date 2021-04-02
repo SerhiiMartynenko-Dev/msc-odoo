@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <template id="report_receipt">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <div t-att-data-oe-model="doc and doc._name"
+                     t-att-data-oe-id="doc and doc.id"
+                     t-att-data-oe-lang="doc and doc.env.context.get('lang')"
+                     class="article o_report_layout_standard"
+                     style="font-size: 8pt;">
+                    <div class="page">
+                        <div class="oe_structure"/>
+
+                        <div class="row">
+                            <div class="col-12 text-center">
+                                ФОП Мартиненко В.В.<br/>
+                                3200618434<br/>
+                                м. Київ, вул. Володимирська 20/1А
+                            </div>
+                        </div>
+
+
+                        <table class="mt-5 w-100 table-sm o_main_table">
+                            <tbody>
+                                <t t-foreach="doc.invoice_line_ids" t-as="line">
+                                    <tr t-att-class="'bg-200 font-weight-bold o_line_section' if line.display_type == 'line_section' else 'font-italic o_line_note' if line.display_type == 'line_note' else ''">
+                                        <t t-if="not line.display_type">
+                                            <td name="td_name"><span t-field="line.name" /></td>
+                                            <td name="td_quantity" class="text-right">
+                                                <span t-if="line.quantity == int(line.quantity)" t-esc="int(line.quantity)" />
+                                                <span t-else="" t-field="line.quantity" />
+                                            </td>
+                                            <td name="td_priceunit" class="text-right">
+                                                <span t-field="line.price_unit" />
+                                            </td>
+                                            <td name="td_subtotal" class="text-right o_price_total">
+                                                <span t-field="line.price_total" />
+                                            </td>
+                                        </t>
+                                        <t t-if="line.display_type">
+                                            <td name="td_section_line" colspan="99">
+                                                <span t-field="line.name" />
+                                            </td>
+                                        </t>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                        <div class="row pt-1" style="font-size: 1.2em;">
+                            <div class="col-6 text-left pt-1">
+                                <t t-set="payment_info" t-value="doc._get_reconciled_invoices_partials()" />
+                                <t t-set="payment_info" t-value="payment_info and payment_info[0][2]" />
+                                <span t-if="payment_info and payment_info.journal_id.type == 'bank'">Картка</span>
+                                <span t-if="payment_info and payment_info.journal_id.type == 'cash'">Готівка</span>
+                            </div>
+                            <div class="col-6 text-right font-weight-bold border-top pt-1">
+                                <span t-field="doc.amount_total" />
+                            </div>
+                        </div>
+
+
+                        <div class="mt-5 row">
+                            <div class="col-12 text-center">
+                                #<t t-esc="doc.name" /><br/>
+                                <t t-esc="doc._fields['date_paid'].context_timestamp(doc, (doc.date_paid or doc.date)).strftime('%d.%m.%Y %H:%M:%S')" /><br/>
+                                Нефіскальний чек
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+
+
+
+
+
+    <record id="action_receipt" model="ir.actions.report">
+        <field name="name">Receipt</field>
+        <field name="model">account.move</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">msc.report_receipt</field>
+        <field name="report_file">msc.report_receipt</field>
+        <field name="print_report_name">'Receipt - %s' % (object.name)</field>
+        <field name="binding_model_id" ref="msc.model_account_move" />
+        <field name="binding_type">report</field>
+        <field name="binding_view_types">form</field>
+        <field name="paperformat_id" ref="paperformat_57mm" />
+    </record>
+
+
+</odoo>
