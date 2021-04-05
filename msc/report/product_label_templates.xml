@@ -21,7 +21,7 @@
                                     <span t-field="doc.barcode" /><br/>
                                     <t t-if="doc.size_value">
                                         <br/>
-                                        <span style="font-size: 1.2em;">Розмір: <span t-field="doc.size_value" /></span>
+                                        <span style="font-size: 1.5em;">Розмір: <span t-field="doc.size_value" /></span>
                                     </t>
                                 </td>
                                 <td class="text-right" style="vertical-align: middle; padding-top: 25px; padding-right: 5px;">
