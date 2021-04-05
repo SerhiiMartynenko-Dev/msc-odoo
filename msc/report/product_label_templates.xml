@@ -18,7 +18,11 @@
                                 <td class="w-100" style="vertical-align: top;">
                                     <span t-field="doc.name" /><br/>
                                     <br/>
-                                    <span t-field="doc.barcode" />
+                                    <span t-field="doc.barcode" /><br/>
+                                    <t t-if="doc.size_value">
+                                        <br/>
+                                        <span style="font-size: 1.2em;">Розмір: <span t-field="doc.size_value" /></span>
+                                    </t>
                                 </td>
                                 <td class="text-right" style="vertical-align: middle; padding-top: 25px; padding-right: 5px;">
                                      <img t-att-src="'/report/barcode/QR/%s?width=220&amp;height=220' % (doc.barcode or doc.name)" alt="QR-code" />
