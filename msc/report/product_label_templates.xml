@@ -13,22 +13,22 @@
                     <div class="page">
                         <div class="oe_structure"/>
 
-                        <table class="w-100">
-                            <tr>
-                                <td class="w-100" style="vertical-align: top;">
-                                    <span t-field="doc.name" /><br/>
+                        <div class="row">
+                            <div class="col-6 pr-0" style="overflow-x: visible;">
+                                <span t-field="doc.name" /><br/>
+                                <br/>
+                                <span t-field="doc.barcode" /><br/>
+                                <t t-if="doc.size_value">
                                     <br/>
-                                    <span t-field="doc.barcode" /><br/>
-                                    <t t-if="doc.size_value">
-                                        <br/>
-                                        <span style="font-size: 1.5em;">Розмір: <span t-field="doc.size_value" /></span>
-                                    </t>
-                                </td>
-                                <td class="text-right" style="vertical-align: middle; padding-top: 25px; padding-right: 5px;">
-                                     <img t-att-src="'/report/barcode/QR/%s?width=220&amp;height=220' % (doc.barcode or doc.name)" alt="QR-code" />
-                                </td>
-                            </tr>
-                        </table>
+                                    <span style="font-size: 1.5em;">Розмір: <span t-field="doc.size_value" /></span>
+                                </t>
+                            </div>
+                            <div class="col-6 pl-0 text-right" style="padding-top: 25px; overflow-x: visible;">
+                                <img t-att-src="'/report/barcode/QR/%s?width=220&amp;height=220' % (doc.barcode or doc.name)" alt="QR-code" />
+                            </div>
+                        </div>
+
+                        <div class="oe_structure"/>
                     </div>
                 </div>
             </t>

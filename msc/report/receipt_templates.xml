@@ -64,7 +64,7 @@
                         <div class="mt-5 row">
                             <div class="col-12 text-center">
                                 #<t t-esc="doc.name" /><br/>
-                                <t t-esc="doc._fields['date_paid'].context_timestamp(doc, (doc.date_paid or doc.date)).strftime('%d.%m.%Y %H:%M:%S')" /><br/>
+                                <t t-esc="doc._fields['date_paid'].context_timestamp(doc, (doc.date_paid or datetime.datetime(doc.date.year, doc.date.month, doc.date.day))).strftime('%d.%m.%Y %H:%M:%S')" /><br/>
                                 Нефіскальний чек
                             </div>
                         </div>

@@ -17,7 +17,7 @@ class MSCAccountMove(models.Model):
     def _compute_date_paid(self):
         for record in self:
             date_paid = None
-            if record.payment_state == 'paid':
+            if record.payment_state in ('paid', 'in_payment'):
                 payment_info = record._get_reconciled_invoices_partials()
                 if payment_info and len(payment_info[0]) > 2:
                     payment_info = payment_info[0][2]
