@@ -31,13 +31,13 @@ class MSCAccountMove(models.Model):
     #
     def action_print_receipt(self):
         self.ensure_one()
-        if self.move_type != 'out_invoice' or self.payment_state != 'paid':
+        if self.move_type != 'out_invoice' or self.payment_state not in ('paid', 'in_payment'):
             raise UserError(_("Receipt not paid yet"))
         return {
             'type': 'ir.actions.act_url',
             'target': 'new',
             'url': '/report/pdf/%s/%s' % (
-                self.env.ref('msc.report_product_label').report_name,
+                self.env.ref('msc.action_receipt').report_name,
                 self.id,
             )
         }

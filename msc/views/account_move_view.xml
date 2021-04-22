@@ -11,7 +11,7 @@
         <field name="arch" type="xml">
             <field name="state" position="before">
                 <button type="object" name="action_print_receipt"
-                        attrs="{'invisible': ['|', ('move_type', '!=', 'out_invoice'), ('payment_state', '!=', 'paid')]}"
+                        attrs="{'invisible': ['|', ('move_type', '!=', 'out_invoice'), ('payment_state', 'not in', ('paid', 'in_payment'))]}"
                         string="Print Receipt" icon="fa-print" class="btn-success" />
             </field>
 
