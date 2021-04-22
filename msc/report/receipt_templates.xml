@@ -4,6 +4,8 @@
 
     <template id="report_receipt">
         <t t-call="web.html_container">
+            <t t-set="uah" t-value="docs.env.ref('base.UAH')" />
+
             <t t-foreach="docs" t-as="doc">
                 <div t-att-data-oe-model="doc and doc._name"
                      t-att-data-oe-id="doc and doc.id"
@@ -25,38 +27,48 @@
                         <table class="mt-5 w-100 table-sm o_main_table">
                             <tbody>
                                 <t t-foreach="doc.invoice_line_ids" t-as="line">
-                                    <tr t-att-class="'bg-200 font-weight-bold o_line_section' if line.display_type == 'line_section' else 'font-italic o_line_note' if line.display_type == 'line_note' else ''">
-                                        <t t-if="not line.display_type">
-                                            <td name="td_name"><span t-field="line.name" /></td>
+                                    <t t-if="not line.display_type">
+                                        <tr>
+                                            <td name="td_name" colspan="5"><span t-field="line.name" /></td>
+                                        </tr>
+                                        <tr>
                                             <td name="td_quantity" class="text-right">
                                                 <span t-if="line.quantity == int(line.quantity)" t-esc="int(line.quantity)" />
                                                 <span t-else="" t-field="line.quantity" />
                                             </td>
+                                            <td>x</td>
                                             <td name="td_priceunit" class="text-right">
-                                                <span t-field="line.price_unit" />
+                                                <span t-esc="doc.currency_id.compute(line.price_unit, uah)" t-options="{'widget': 'float', 'precision': 2}" />грн
                                             </td>
+                                            <td>=</td>
                                             <td name="td_subtotal" class="text-right o_price_total">
-                                                <span t-field="line.price_total" />
+                                                <span t-esc="doc.currency_id.compute(line.price_total, uah)" t-options="{'widget': 'float', 'precision': 2}" />грн
                                             </td>
-                                        </t>
-                                        <t t-if="line.display_type">
-                                            <td name="td_section_line" colspan="99">
-                                                <span t-field="line.name" />
-                                            </td>
-                                        </t>
+                                        </tr>
+                                    </t>
+                                    <tr t-if="line.display_type" t-att-class="'bg-200 font-weight-bold o_line_section' if line.display_type == 'line_section' else 'font-italic o_line_note' if line.display_type == 'line_note' else ''">
+                                        <td name="td_section_line" colspan="99">
+                                            <span t-field="line.name" />
+                                        </td>
                                     </tr>
+
+                                    <t t-if="line.display_type">
+                                        <td name="td_section_line" colspan="99">
+                                            <span t-field="line.name" />
+                                        </td>
+                                    </t>
                                 </t>
                             </tbody>
                         </table>
                         <div class="row pt-1" style="font-size: 1.2em;">
-                            <div class="col-6 text-left pt-1">
+                            <div class="col-5 text-left pt-1">
                                 <t t-set="payment_info" t-value="doc._get_reconciled_invoices_partials()" />
                                 <t t-set="payment_info" t-value="payment_info and payment_info[0][2]" />
                                 <span t-if="payment_info and payment_info.journal_id.type == 'bank'">Картка</span>
                                 <span t-if="payment_info and payment_info.journal_id.type == 'cash'">Готівка</span>
                             </div>
-                            <div class="col-6 text-right font-weight-bold border-top pt-1">
-                                <span t-field="doc.amount_total" />
+                            <div class="col-7 text-right font-weight-bold border-top pt-1">
+                                <span t-esc="doc.currency_id.compute(doc.amount_total, uah)" t-options="{'widget': 'float', 'precision': 2}" />грн
                             </div>
                         </div>
 
