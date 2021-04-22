@@ -97,10 +97,12 @@
         <field name="report_name">msc.report_receipt</field>
         <field name="report_file">msc.report_receipt</field>
         <field name="print_report_name">'Receipt - %s' % (object.name)</field>
-        <field name="binding_model_id" ref="msc.model_account_move" />
-        <field name="binding_type">report</field>
-        <field name="binding_view_types">form</field>
         <field name="paperformat_id" ref="paperformat_57mm" />
+<!--        <field name="binding_model_id" ref="msc.model_account_move" />-->
+        <field name="binding_model_id" eval="None" />
+        <field name="binding_type">report</field>
+<!--        <field name="binding_view_types">form</field>-->
+        <field name="binding_view_types" eval="None" />
     </record>
 
 
