@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <record id="module_category_msc" model="ir.module.category">
+        <field name="name">MSC</field>
+        <field name="sequence">100</field>
+    </record>
+
+
+    <record id="group_msc_sale_user" model="res.groups">
+        <field name="name">Sale User</field>
+        <field name="category_id" ref="module_category_msc" />
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]" />
+    </record>
+
+
+
+</odoo>

@@ -20,4 +20,45 @@
 
 
 
+
+
+
+
+
+    <!--
+        Hide margin
+    -->
+
+    <record id="view_order_form_sale_user" model="ir.ui.view">
+        <field name="name">sale.order.form.inherit.msc.sale_user</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="priority" eval="99999" />
+        <field name="groups_id" eval="[(6, 0, [ref('msc.group_msc_sale_user')])]" />
+        <field name="mode">extension</field>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='note_group']//label[@for='margin']" position="replace"/>
+            <xpath expr="//group[@name='note_group']//field[@name='margin']/.." position="replace"/>
+
+            <xpath expr="//field[@name='order_line']/form//field[@name='purchase_price']" position="replace" />
+            <xpath expr="//field[@name='order_line']/tree//field[@name='purchase_price']" position="replace" />
+            <xpath expr="//field[@name='order_line']/tree//field[@name='margin']" position="replace" />
+            <xpath expr="//field[@name='order_line']/tree//field[@name='margin_percent']" position="replace" />
+        </field>
+    </record>
+
+    <record id="view_sale_order_pivot_sale_user" model="ir.ui.view">
+        <field name="name">sale.order.margin.view.pivot.inherit.msc.sale_user</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_sale_order_pivot"/>
+        <field name="priority" eval="99999" />
+        <field name="groups_id" eval="[(6, 0, [ref('msc.group_msc_sale_user')])]" />
+        <field name="mode">extension</field>
+        <field name="arch" type="xml">
+            <field name="margin_percent" position="replace"/>
+        </field>
+    </record>
+
+
+
 </odoo>
