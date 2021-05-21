@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': "MSC",
-    'version': '14.0.1.2.3',
+    'version': '14.0.1.3.1',
     'category': 'CRM',
     'application': True,
     'installable': True,
@@ -9,6 +9,7 @@
 
     'depends': [
         'sale_management',
+        'sale_margin',
         'purchase',
         'stock_landed_costs',
         'account',
@@ -24,9 +25,11 @@
 
 
     'data': [
+        'security/msc_security.xml',
         'security/ir.model.access.csv',
 
 
+        'data/msc_data.xml',
         'data/report_paperformat_data.xml',
         'data/sale_data.xml',
 
