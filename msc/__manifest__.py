@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': "MSC",
-    'version': '14.0.1.4.1',
+    'version': '14.0.1.4.2',
     'category': 'CRM',
     'application': True,
     'installable': True,
