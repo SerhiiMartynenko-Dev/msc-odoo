@@ -40,31 +40,9 @@ class MSCSaleOrderSetDiscountWizard(models.TransientModel):
     def action_confirm(self):
         self.ensure_one()
 
-        if not self.order_id.order_line:
-            return
-
-        if self.discount == 0.0:
-            self.order_id.order_line.write({
-                'discount': 0,
-            })
-
-        elif len(self.order_id.order_line) == 1:
-            self.order_id.order_line.write({
-                'discount': self.discount * 100.0,
-            })
-
-        else:
-            total = sum([line.price_unit * line.product_uom_qty for line in self.order_id.order_line])
-            update = []
-
-            for line in self.order_id.order_line:
-                update.append((1, line.id, {
-                    'discount': self.discount * 100.0 * line.price_unit * line.product_uom_qty / total,
-                }))
-
-            self.order_id.write({
-                'order_line': update,
-            })
+        self.order_id.order_line.write({
+            'discount': self.discount * 100.0,
+        })
 
         # remove wizard
         self.unlink()
