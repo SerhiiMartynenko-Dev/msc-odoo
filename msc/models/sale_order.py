@@ -4,6 +4,54 @@
 from odoo import api, models, fields
 
 
+class MSCSaleOrder(models.Model):
+    _inherit = 'sale.order'
+
+    #
+    #
+    #
+    def action_set_discount(self):
+        self.ensure_one()
+        return self.env['msc.wizard.order_set_discount'].create_and_show(self)
+
+    def action_print_receipt(self):
+        self.ensure_one()
+        if self.state == 'cancel':
+            return
+
+        self = self.sudo()
+        if self.state in ('draft', 'sent'):
+            self.action_confirm()
+
+        if self.picking_ids:
+            for picking in self.picking_ids:
+                if picking.state in ('draft', 'waiting', 'assigned'):
+                    for move in picking.move_lines:
+                        if move.quantity_done != move.product_uom_qty:
+                            move.quantity_done = move.product_uom_qty
+                    picking.button_validate()
+
+        if not self.invoice_ids:
+            context = {
+                'active_model': 'sale.order',
+                'active_ids': [self.id],
+                'active_id': self.id,
+            }
+            self.env['sale.advance.payment.inv'].with_context(context).create({}).create_invoices()
+            self.refresh()
+
+        for invoice in self.invoice_ids:
+            if invoice.state == 'draft':
+                invoice.action_post()
+            if invoice.payment_state not in ('in_payment', 'paid'):
+                self.env['account.payment.register'].with_context(
+                    active_model='account.move',
+                    active_ids=invoice.ids
+                ).create({})._create_payments()
+
+        return self.invoice_ids[0].action_print_receipt()
+
+
 class MSCSaleOrderLine(models.Model):
     _inherit = 'sale.order.line'
 

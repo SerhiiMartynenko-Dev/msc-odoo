@@ -75,6 +75,33 @@ msgstr "Печатать"
 
 #. module: msc
 #: model_terms:ir.ui.view,arch_db:msc.view_wizard_print_product_label_form
+#: model_terms:ir.ui.view,arch_db:msc.view_wizard_order_set_discount_form
 msgid "Cancel"
 msgstr "Отмена"
+
+
+#. module: msc
+#: model_terms:ir.ui.view,arch_db:msc.view_order_form
+msgid "Are you sure that you want to confirm order and print receipt?"
+msgstr "Вы действительно хотите подтвердить заказ и напечатать текст?"
+
+#. module: msc
+#: model_terms:ir.ui.view,arch_db:msc.view_order_form
+msgid "Print Receipt"
+msgstr "Напечатать чек"
+
+#. module: msc
+#: model_terms:ir.ui.view,arch_db:msc.view_order_form
+msgid "Print Receipt"
+msgstr "Напечатать чек"
+
+#. module: msc
+#: model_terms:ir.ui.view,arch_db:msc.view_wizard_order_set_discount_form
+msgid "Confirm"
+msgstr "Подтвердить"
+
+#. module: msc
+#: code:addons/msc/wizard/wizard_order_set_discount.py:29
+msgid "Set sale order discount"
+msgstr "Установить скидку на заказ"
 

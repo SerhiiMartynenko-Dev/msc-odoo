@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': "MSC",
-    'version': '14.0.1.3.1',
+    'version': '14.0.1.4.0',
     'category': 'CRM',
     'application': True,
     'installable': True,
@@ -13,6 +13,7 @@
         'purchase',
         'stock_landed_costs',
         'account',
+        'sale_stock',
 
         'product_tags',
         'web_search_filters_ext',
@@ -46,6 +47,8 @@
         'views/purchase_views.xml',
         'views/sale_views.xml',
 
+
+        'wizard/wizard_order_set_discount_views.xml',
         'wizard/wizard_print_product_label_views.xml',
     ],
 

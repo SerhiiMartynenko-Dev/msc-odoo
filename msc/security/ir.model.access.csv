@@ -1,5 +1,6 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 
 
+access_msc_wizard_order_set_discount,msc_wizard_order_set_discount,model_msc_wizard_order_set_discount,,1,1,1,1
 access_msc_wizard_print_product_label,msc_wizard_print_product_label,model_msc_wizard_print_product_label,,1,1,1,1
 

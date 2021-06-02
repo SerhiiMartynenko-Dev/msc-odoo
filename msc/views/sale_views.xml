@@ -9,6 +9,16 @@
         <field name="inherit_id" ref="sale.view_order_form" />
         <field name="priority" eval="999" />
         <field name="arch" type="xml">
+            <header position="inside">
+                <button type="object" name="action_set_discount"
+                        attrs="{'invisible': [('state', '=', 'cancel')]}"
+                        string="Set Discount" class="btn-primary" />
+                <button type="object" name="action_print_receipt"
+                        attrs="{'invisible': [('state', '=', 'cancel')]}"
+                        confirm="Are you sure that you want to confirm order and print receipt?"
+                        string="Print Receipt" class="btn-success" />
+            </header>
+
             <xpath expr="//field[@name='order_line']/form//div[@name='discount']" position="after">
                 <field name="discount_price" groups="product.group_discount_per_so_line" />
             </xpath>
