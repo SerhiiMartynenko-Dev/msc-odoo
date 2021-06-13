@@ -60,6 +60,8 @@ class MSCSaleOrderLine(models.Model):
                                      compute='_compute_discount_price',
                                      readonly=False)
 
+    stock_cost = fields.Monetary(related='product_id.stock_cost', store=True)
+
     #
     #
     #
@@ -76,4 +78,9 @@ class MSCSaleOrderLine(models.Model):
         self = self.with_context(skip_discount_price_recompute=True)
         for record in self:
             record.discount_price = record.price_unit * (1 - (record.discount or 0.0) / 100.0)
+
+    @api.depends('product_id.stock_cost')
+    def _compute_purchase_price(self):
+        for record in self:
+            record.purchase_price = record.stock_cost or record.product_id.standard_price
 

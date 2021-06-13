@@ -17,6 +17,43 @@
 
 
 
+    <record id="product_template_form_view" model="ir.ui.view">
+        <field name="name">product.template.common.inherit.msc</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="priority" eval="1000" />
+        <field name="arch" type="xml">
+            <field name="company_id" position="before">
+                <field name="stock_cost" />
+            </field>
+        </field>
+    </record>
+
+    <record id="product_template_only_form_view" model="ir.ui.view">
+        <field name="name">product.template.product.form.inherit.msc</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view"/>
+        <field name="priority" eval="1000" />
+        <field name="arch" type="xml">
+            <field name="company_id" position="before">
+                <field name="stock_cost" />
+            </field>
+        </field>
+    </record>
+
+    <record id="product_normal_form_view" model="ir.ui.view">
+        <field name="name">product.product.form.inherit.msc</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_normal_form_view"/>
+        <field name="priority" eval="1000" />
+        <field name="arch" type="xml">
+            <field name="company_id" position="before">
+                <field name="stock_cost" />
+            </field>
+        </field>
+    </record>
+
+
 
 
 
@@ -47,13 +84,14 @@
         <field name="mode">extension</field>
         <field name="arch" type="xml">
             <field name="standard_price" position="replace" />
+            <field name="stock_cost" position="replace" />
         </field>
     </record>
 
 
 
 
-    <record id="product_template_form_view" model="ir.ui.view">
+    <record id="product_template_form_view_sale_user" model="ir.ui.view">
         <field name="name">product.template.common.inherit.msc.sale_user</field>
         <field name="model">product.template</field>
         <field name="inherit_id" ref="product.product_template_form_view"/>
@@ -67,7 +105,7 @@
     </record>
 
 
-    <record id="product_variant_easy_edit_view" model="ir.ui.view">
+    <record id="product_variant_easy_edit_view_sale_user" model="ir.ui.view">
         <field name="name">product.product.view.form.easy.inherit.msc.sale_user</field>
         <field name="model">product.product</field>
         <field name="inherit_id" ref="product.product_variant_easy_edit_view"/>
@@ -76,6 +114,7 @@
         <field name="mode">extension</field>
         <field name="arch" type="xml">
             <field name="standard_price" position="replace" />
+            <field name="stock_cost" position="replace" />
         </field>
     </record>
 
@@ -95,7 +134,7 @@
         </field>
     </record>
 
-    <record id="product_supplierinfo_form_view" model="ir.ui.view">
+    <record id="product_supplierinfo_form_view_sale_user" model="ir.ui.view">
         <field name="name">product.supplierinfo.form.view.inherit.msc.sale_user</field>
         <field name="model">product.supplierinfo</field>
         <field name="inherit_id" ref="product.product_supplierinfo_form_view" />
