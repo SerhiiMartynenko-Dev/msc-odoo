@@ -62,10 +62,11 @@
                         </table>
                         <div class="row pt-1" style="font-size: 1.2em;">
                             <div class="col-5 text-left pt-1">
-                                <t t-set="payment_info" t-value="doc._get_reconciled_invoices_partials()" />
-                                <t t-set="payment_info" t-value="payment_info and payment_info[0][2]" />
-                                <span t-if="payment_info and payment_info.journal_id.type == 'bank'">Картка</span>
-                                <span t-if="payment_info and payment_info.journal_id.type == 'cash'">Готівка</span>
+<!--                                <t t-set="payment_info" t-value="doc._get_reconciled_invoices_partials()" />-->
+<!--                                <t t-set="payment_info" t-value="payment_info and payment_info[0][2]" />-->
+<!--                                <span t-if="payment_info and payment_info.journal_id.type == 'bank'">Картка</span>-->
+<!--                                <span t-if="payment_info and payment_info.journal_id.type == 'cash'">Готівка</span>-->
+                                <span>Сума всього:</span>
                             </div>
                             <div class="col-7 text-right font-weight-bold border-top pt-1">
                                 <span t-esc="doc.currency_id.compute(doc.amount_total, uah)" t-options="{'widget': 'float', 'precision': 2}" />грн

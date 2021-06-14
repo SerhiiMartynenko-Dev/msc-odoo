@@ -29,12 +29,40 @@ class MSCProductTemplate(models.Model):
 
     type = fields.Selection(default='product')
 
+    stock_cost = fields.Monetary(string="Stock Cost", compute='_compute_stock_cost')
+
+    #
+    #
+    #
+    def _compute_stock_cost(self):
+        model_move = self.env['stock.move'].sudo()
+        model_valuation = self.env['stock.valuation.layer'].sudo()
+
+        for record in self:
+            # find last incoming move
+            move = model_move.search([
+                ('location_id.usage', '=', 'supplier'),
+                ('product_id.product_tmpl_id', '=', record.id),
+                ('state', '=', 'done'),
+            ], order='sequence desc, id desc', limit=1)
+
+            if move:
+                valuations = model_valuation.search([('stock_move_id', '=', move.id)])
+                amount = sum(valuations.mapped('value'))
+                quantity = sum(valuations.mapped('quantity'))
+                record.stock_cost = (amount or 0) / (quantity or 1)
+
+            else:
+                record.stock_cost = 0
+
 
 class MSCProductProduct(models.Model):
     _inherit = 'product.product'
 
     barcode = fields.Char(readonly=True)
     size_value = fields.Char(compute='_compute_size_value')
+
+    stock_cost = fields.Monetary(string="Stock Cost", compute='_compute_stock_cost')
 
     #
     #
@@ -50,6 +78,28 @@ class MSCProductProduct(models.Model):
                         break
 
             record.size_value = size
+
+    def _compute_stock_cost(self):
+        model_move = self.env['stock.move'].sudo()
+        model_valuation = self.env['stock.valuation.layer'].sudo()
+
+        for record in self:
+            # find last incoming move
+            move = model_move.search([
+                ('location_id.usage', '=', 'supplier'),
+                ('product_id', '=', record.id),
+                ('state', '=', 'done'),
+            ], order='sequence desc, id desc', limit=1)
+
+            if move:
+                valuations = model_valuation.search([('stock_move_id', '=', move.id)])
+                amount = sum(valuations.mapped('value'))
+                quantity = sum(valuations.mapped('quantity'))
+                record.stock_cost = (amount or 0) / (quantity or 1)
+
+            else:
+                record.stock_cost = 0
+
 
     #
     #

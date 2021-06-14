@@ -105,3 +105,10 @@ msgstr "Подтвердить"
 msgid "Set sale order discount"
 msgstr "Установить скидку на заказ"
 
+#. module: msc
+#: model:ir.model.fields,field_description:msc.field_product_template__stock_cost
+#: model:ir.model.fields,field_description:msc.field_product_product__stock_cost
+#: model:ir.model.fields,field_description:msc.field_sale_order__amount_stock_cost
+msgid "Stock Cost"
+msgstr "Стоимость запаса"
+

@@ -7,6 +7,17 @@ from odoo import api, models, fields
 class MSCSaleOrder(models.Model):
     _inherit = 'sale.order'
 
+    amount_stock_cost = fields.Monetary(string="Stock Cost", compute='_compute_amount_stock_cost')
+
+    #
+    #
+    #
+    @api.onchange('order_line')
+    @api.depends('order_line.stock_cost')
+    def _compute_amount_stock_cost(self):
+        for record in self:
+            record.amount_stock_cost = sum(record.order_line.mapped('stock_cost'))
+
     #
     #
     #
@@ -60,6 +71,8 @@ class MSCSaleOrderLine(models.Model):
                                      compute='_compute_discount_price',
                                      readonly=False)
 
+    stock_cost = fields.Monetary(related='product_id.stock_cost', store=True)
+
     #
     #
     #
@@ -76,4 +89,9 @@ class MSCSaleOrderLine(models.Model):
         self = self.with_context(skip_discount_price_recompute=True)
         for record in self:
             record.discount_price = record.price_unit * (1 - (record.discount or 0.0) / 100.0)
+
+    @api.depends('product_id.stock_cost')
+    def _compute_purchase_price(self):
+        for record in self:
+            record.purchase_price = record.stock_cost or record.product_id.standard_price
 
