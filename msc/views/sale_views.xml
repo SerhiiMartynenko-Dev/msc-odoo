@@ -25,6 +25,9 @@
             <xpath expr="//field[@name='order_line']/tree//field[@name='discount']" position="after">
                 <field name="discount_price" optional="show" groups="product.group_discount_per_so_line" />
             </xpath>
+            <xpath expr="//field[@name='order_line']/tree//field[@name='margin']" position="before">
+                <field name="stock_cost" optional="hide" />
+            </xpath>
         </field>
     </record>
 
@@ -52,6 +55,7 @@
 
             <xpath expr="//field[@name='order_line']/form//field[@name='purchase_price']" position="replace" />
             <xpath expr="//field[@name='order_line']/tree//field[@name='purchase_price']" position="replace" />
+            <xpath expr="//field[@name='order_line']/tree//field[@name='stock_cost']" position="replace" />
             <xpath expr="//field[@name='order_line']/tree//field[@name='margin']" position="replace" />
             <xpath expr="//field[@name='order_line']/tree//field[@name='margin_percent']" position="replace" />
         </field>

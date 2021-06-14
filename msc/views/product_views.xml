@@ -27,7 +27,7 @@
         <field name="priority" eval="1000" />
         <field name="arch" type="xml">
             <field name="standard_price" position="after">
-                <field name="stock_cost" position="replace" />
+                <field name="stock_cost" optional="show" />
             </field>
         </field>
     </record>
@@ -39,7 +39,7 @@
         <field name="priority" eval="1000" />
         <field name="arch" type="xml">
             <field name="standard_price" position="after">
-                <field name="stock_cost" position="replace" />
+                <field name="stock_cost" optional="show" />
             </field>
         </field>
     </record>
