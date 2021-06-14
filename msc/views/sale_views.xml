@@ -19,6 +19,12 @@
                         string="Print Receipt" class="btn-success" />
             </header>
 
+
+            <xpath expr="//field[@name='amount_total']" position="after">
+                <field name="amount_stock_cost" />
+            </xpath>
+
+
             <xpath expr="//field[@name='order_line']/form//div[@name='discount']" position="after">
                 <field name="discount_price" groups="product.group_discount_per_so_line" />
             </xpath>
@@ -39,7 +45,7 @@
 
 
     <!--
-        Hide margin
+        Hide margin and cost
     -->
 
     <record id="view_order_form_sale_user" model="ir.ui.view">
@@ -50,6 +56,7 @@
         <field name="groups_id" eval="[(6, 0, [ref('msc.group_msc_sale_user')])]" />
         <field name="mode">extension</field>
         <field name="arch" type="xml">
+            <xpath expr="//group[@name='note_group']//field[@name='amount_stock_cost']" position="replace"/>
             <xpath expr="//group[@name='note_group']//label[@for='margin']" position="replace"/>
             <xpath expr="//group[@name='note_group']//field[@name='margin']/.." position="replace"/>
 

@@ -7,6 +7,17 @@ from odoo import api, models, fields
 class MSCSaleOrder(models.Model):
     _inherit = 'sale.order'
 
+    amount_stock_cost = fields.Monetary(string="Stock Cost", compute='_compute_amount_stock_cost')
+
+    #
+    #
+    #
+    @api.onchange('order_line')
+    @api.depends('order_line.stock_cost')
+    def _compute_amount_stock_cost(self):
+        for record in self:
+            record.amount_stock_cost = sum(record.order_line.mapped('stock_cost'))
+
     #
     #
     #
