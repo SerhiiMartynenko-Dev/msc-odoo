@@ -106,3 +106,23 @@ msgstr "Встановити знижку на замовлення"
 msgid "Stock Cost"
 msgstr "Вартість запасу"
 
+#. module: msc
+#: model:ir.model.fields,field_description:msc.field_sale_order__total_units
+msgid "Total Units"
+msgstr "Всього одиниць"
+
+#. module: msc
+#: model_terms:ir.ui.view,arch_db:msc.view_picking_form
+msgid "Total Demand"
+msgstr "Всього"
+
+#. module: msc
+#: model_terms:ir.ui.view,arch_db:msc.view_picking_form
+msgid "Total Reserved"
+msgstr "Всього зарезервовано"
+
+#. module: msc
+#: model_terms:ir.ui.view,arch_db:msc.view_picking_form
+msgid "Total Done"
+msgstr "Всього зроблено"
+

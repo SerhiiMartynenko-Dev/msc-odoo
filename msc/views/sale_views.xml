@@ -34,6 +34,18 @@
             <xpath expr="//field[@name='order_line']/tree//field[@name='margin']" position="before">
                 <field name="stock_cost" optional="hide" />
             </xpath>
+
+
+
+            <field name="amount_untaxed" position="before">
+                <field name="total_units" />
+                <div class="oe_subtotal_footer_separator oe_inline o_td_label">
+                    <label for="amount_untaxed" />
+                </div>
+            </field>
+            <field name="amount_untaxed" position="attributes">
+                <attribute name="nolabel">1</attribute>
+            </field>
         </field>
     </record>
 
