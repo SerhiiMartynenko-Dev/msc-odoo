@@ -113,17 +113,12 @@ msgid "Total Units"
 msgstr "Всього одиниць"
 
 #. module: msc
-#: model_terms:ir.ui.view,arch_db:msc.view_picking_form
+#: model:ir.model.fields,field_description:msc.field_stock_picking__total_demand
 msgid "Total Demand"
 msgstr "Всього"
 
 #. module: msc
-#: model_terms:ir.ui.view,arch_db:msc.view_picking_form
-msgid "Total Reserved"
-msgstr "Всього зарезервовано"
-
-#. module: msc
-#: model_terms:ir.ui.view,arch_db:msc.view_picking_form
+#: model:ir.model.fields,field_description:msc.field_stock_picking__total_done
 msgid "Total Done"
 msgstr "Всього зроблено"
 
