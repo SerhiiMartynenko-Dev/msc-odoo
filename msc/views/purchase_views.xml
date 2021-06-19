@@ -14,6 +14,17 @@
                         attrs="{'invisible': [('id', '=', False)]}"
                         string="Print labels for products" icon="fa-print" class="btn-success" />
             </field>
+
+
+            <field name="amount_untaxed" position="before">
+                <field name="total_units" />
+                <div class="oe_subtotal_footer_separator oe_inline o_td_label">
+                    <label for="amount_untaxed" />
+                </div>
+            </field>
+            <field name="amount_untaxed" position="attributes">
+                <attribute name="nolabel">1</attribute>
+            </field>
         </field>
     </record>
 

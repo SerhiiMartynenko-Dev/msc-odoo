@@ -108,6 +108,7 @@ msgstr "Вартість запасу"
 
 #. module: msc
 #: model:ir.model.fields,field_description:msc.field_sale_order__total_units
+#: model:ir.model.fields,field_description:msc.field_purchase_order__total_units
 msgid "Total Units"
 msgstr "Всього одиниць"
 
