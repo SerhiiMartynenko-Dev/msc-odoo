@@ -31,6 +31,29 @@ for product in products:
         </record>
 
 
+
+
+
+
+<!--        <record id="action_fix_margin" model="ir.actions.server">-->
+<!--            <field name="name">MSC: Fix Margin</field>-->
+<!--            <field name="model_id" ref="sale.model_sale_order"/>-->
+<!--            <field name="state">code</field>-->
+<!--            <field name="code">-->
+<!--orders = model.with_context(active_test=False).search([])-->
+<!--for order in orders:-->
+<!--    order.order_line._compute_purchase_price()-->
+<!--    order.order_line._compute_margin()-->
+<!--    order._compute_margin()-->
+<!--            </field>-->
+<!--        </record>-->
+
+<!--        <record id="action_fix_margin_todo" model="ir.actions.todo">-->
+<!--            <field name="name">MSC: Fix Margin</field>-->
+<!--            <field name="sequence">0</field>-->
+<!--            <field name="action_id" ref="action_fix_margin"/>-->
+<!--        </record>-->
+
     </data>
 
 
