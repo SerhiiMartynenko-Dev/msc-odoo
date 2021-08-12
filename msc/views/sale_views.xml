@@ -81,5 +81,37 @@
     </record>
 
 
+    <record id="view_sale_order_pivot" model="ir.ui.view">
+        <field name="name">sale.order.pivot.inherit.msc.sale_user</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_sale_order_pivot"/>
+        <field name="priority" eval="99999" />
+        <field name="groups_id" eval="[(6, 0, [ref('msc.group_msc_sale_user')])]" />
+        <field name="mode">extension</field>
+        <field name="arch" type="xml">
+            <pivot position="inside">
+                <field name="margin" invisible="1" />
+                <field name="margin_percent" invisible="1" />
+            </pivot>
+        </field>
+    </record>
+
+    
+    <record id="view_sale_order_graph" model="ir.ui.view">
+        <field name="name">sale.order.graph.inherit.msc.sale_user</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_sale_order_graph"/>
+        <field name="priority" eval="99999" />
+        <field name="groups_id" eval="[(6, 0, [ref('msc.group_msc_sale_user')])]" />
+        <field name="mode">extension</field>
+        <field name="arch" type="xml">
+            <graph position="inside">
+                <field name="margin" invisible="1" />
+                <field name="margin_percent" invisible="1" />
+            </graph>
+        </field>
+    </record>
+
+
 
 </odoo>
