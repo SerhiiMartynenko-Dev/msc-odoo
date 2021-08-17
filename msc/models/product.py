@@ -60,6 +60,7 @@ class MSCProductProduct(models.Model):
     _inherit = 'product.product'
 
     barcode = fields.Char(readonly=True)
+    color_value = fields.Char(compute='_compute_color_value')
     size_value = fields.Char(compute='_compute_size_value')
 
     stock_cost = fields.Monetary(string="Stock Cost", compute='_compute_stock_cost')
@@ -78,6 +79,18 @@ class MSCProductProduct(models.Model):
                         break
 
             record.size_value = size
+
+    def _compute_color_value(self):
+        for record in self:
+            color = ''
+
+            if record.product_template_attribute_value_ids:
+                for av in record.product_template_attribute_value_ids:
+                    if av.name and av.attribute_id == self.env.company.msc_color_attribute:
+                        color = av.name
+                        break
+
+            record.color_value = color
 
     def _compute_stock_cost(self):
         model_move = self.env['stock.move'].sudo()
