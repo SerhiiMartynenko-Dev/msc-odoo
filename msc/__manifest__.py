@@ -45,6 +45,7 @@
         'views/account_move_view.xml',
         'views/product_views.xml',
         'views/purchase_views.xml',
+        'views/res_config_settings_views.xml',
         'views/sale_views.xml',
         'views/stock_picking_views.xml',
 

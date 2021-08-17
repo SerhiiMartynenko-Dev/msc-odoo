@@ -16,8 +16,10 @@
                         <div class="row">
                             <div class="col-6 pr-0" style="overflow-x: visible;">
                                 <span t-field="doc.name" /><br/>
-                                <br/>
-                                <span t-field="doc.barcode" /><br/>
+                                <t t-if="doc.color_value">
+                                    <br/>
+                                    <span style="font-size: 1.5em;">Колір: <span t-field="doc.color_value" /></span>
+                                </t>
                                 <t t-if="doc.size_value">
                                     <br/>
                                     <span style="font-size: 1.5em;">Розмір: <span t-field="doc.size_value" /></span>

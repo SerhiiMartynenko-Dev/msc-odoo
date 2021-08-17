@@ -122,3 +122,18 @@ msgstr "Всього"
 msgid "Total Done"
 msgstr "Всього зроблено"
 
+#. module: msc
+#: model_terms:ir.ui.view,arch_db:msc.res_config_settings_view_form
+msgid "Label Printing"
+msgstr "Друк етикеток"
+
+#. module: msc
+#: model_terms:ir.ui.view,arch_db:msc.res_config_settings_view_form
+msgid "Color Attribute"
+msgstr "Атрибут кольору"
+
+#. module: msc
+#: model_terms:ir.ui.view,arch_db:msc.res_config_settings_view_form
+msgid "Select the attribute for color"
+msgstr "Оберіть атрибут, що використовується для кольору"
+
