@@ -18,7 +18,7 @@
                                 <span t-field="doc.name" /><br/>
                                 <t t-if="doc.color_value">
                                     <br/>
-                                    <span style="font-size: 1.5em;">Колір: <span t-field="doc.color_value" /></span>
+                                    <span style="font-size: 1.5em;">Колір: <span t-field="doc.color_value" />/<t t-esc="int(doc.lst_price or 0)" /></span>
                                 </t>
                                 <t t-if="doc.size_value">
                                     <br/>
