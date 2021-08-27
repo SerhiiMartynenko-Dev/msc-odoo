@@ -25,6 +25,11 @@
             <field name="amount_untaxed" position="attributes">
                 <attribute name="nolabel">1</attribute>
             </field>
+
+
+            <xpath expr="//field[@name='order_line']/tree" position="attributes">
+                <attribute name="limit">100</attribute>
+            </xpath>
         </field>
     </record>
 

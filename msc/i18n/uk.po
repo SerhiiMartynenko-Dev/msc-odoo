@@ -102,9 +102,28 @@ msgstr "Встановити знижку на замовлення"
 #. module: msc
 #: model:ir.model.fields,field_description:msc.field_product_template__stock_cost
 #: model:ir.model.fields,field_description:msc.field_product_product__stock_cost
-#: model:ir.model.fields,field_description:msc.field_sale_order__amount_stock_cost
+#: model_terms:ir.ui.view,arch_db:msc.product_template_form_view
+#: model_terms:ir.ui.view,arch_db:msc.product_template_only_form_view
+#: model_terms:ir.ui.view,arch_db:msc.product_normal_form_view
 msgid "Stock Cost"
 msgstr "Вартість запасу"
+
+#. module: msc
+#: model:ir.model.fields,field_description:msc.field_sale_order__amount_stock_cost
+msgid "Total Stock Cost"
+msgstr "Загальна вартість запасу"
+
+#. module: msc
+#: model:ir.model.fields.selection,name:msc.selection__product_template__stock_cost_select__auto
+#: model:ir.model.fields.selection,name:msc.selection__product_product__stock_cost_select__auto
+msgid "Auto"
+msgstr "Автоматично"
+
+#. module: msc
+#: model:ir.model.fields.selection,name:msc.selection__product_template__stock_cost_select__manual
+#: model:ir.model.fields.selection,name:msc.selection__product_product__stock_cost_select__manual
+msgid "Manual"
+msgstr "Вручну"
 
 #. module: msc
 #: model:ir.model.fields,field_description:msc.field_sale_order__total_units
@@ -136,4 +155,9 @@ msgstr "Атрибут кольору"
 #: model_terms:ir.ui.view,arch_db:msc.res_config_settings_view_form
 msgid "Select the attribute for color"
 msgstr "Оберіть атрибут, що використовується для кольору"
+
+#. module: msc
+#: model_terms:ir.ui.view,arch_db:msc.view_partner_form
+msgid "Photo"
+msgstr "Зображення"
 

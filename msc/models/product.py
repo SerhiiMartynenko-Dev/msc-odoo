@@ -29,7 +29,13 @@ class MSCProductTemplate(models.Model):
 
     type = fields.Selection(default='product')
 
+    stock_cost_select = fields.Selection(selection=[
+        ('auto', "Auto"),
+        ('manual', "Manual"),
+    ], string="Stock Cost Type", default='auto', required=True)
     stock_cost = fields.Monetary(string="Stock Cost", compute='_compute_stock_cost')
+    stock_cost_manual = fields.Monetary(string="Stock Cost Manual")
+    stock_cost_auto = fields.Monetary(string="Stock Cost Auto", compute='_compute_stock_cost')
 
     #
     #
@@ -50,10 +56,15 @@ class MSCProductTemplate(models.Model):
                 valuations = model_valuation.search([('stock_move_id', '=', move.id)])
                 amount = sum(valuations.mapped('value'))
                 quantity = sum(valuations.mapped('quantity'))
-                record.stock_cost = (amount or 0) / (quantity or 1)
+                record.stock_cost_auto = (amount or 0) / (quantity or 1)
 
             else:
-                record.stock_cost = 0
+                record.stock_cost_auto = 0
+
+            if record.stock_cost_select == 'auto':
+                record.stock_cost = record.stock_cost_auto
+            else:
+                record.stock_cost = record.stock_cost_manual or 0
 
 
 class MSCProductProduct(models.Model):
@@ -63,7 +74,13 @@ class MSCProductProduct(models.Model):
     color_value = fields.Char(compute='_compute_color_value')
     size_value = fields.Char(compute='_compute_size_value')
 
+    stock_cost_select = fields.Selection(selection=[
+        ('auto', "Auto"),
+        ('manual', "Manual"),
+    ], string="Stock Cost Type", default='auto', required=True)
     stock_cost = fields.Monetary(string="Stock Cost", compute='_compute_stock_cost')
+    stock_cost_manual = fields.Monetary(string="Stock Cost Manual")
+    stock_cost_auto = fields.Monetary(string="Stock Cost Auto", compute='_compute_stock_cost')
 
     #
     #
@@ -108,11 +125,15 @@ class MSCProductProduct(models.Model):
                 valuations = model_valuation.search([('stock_move_id', '=', move.id)])
                 amount = sum(valuations.mapped('value'))
                 quantity = sum(valuations.mapped('quantity'))
-                record.stock_cost = (amount or 0) / (quantity or 1)
+                record.stock_cost_auto = (amount or 0) / (quantity or 1)
 
             else:
-                record.stock_cost = 0
+                record.stock_cost_auto = 0
 
+            if record.stock_cost_select == 'auto':
+                record.stock_cost = record.stock_cost_auto
+            else:
+                record.stock_cost = record.stock_cost_manual or 0
 
     #
     #
