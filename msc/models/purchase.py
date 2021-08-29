@@ -35,9 +35,9 @@ class MSCPurchaseOrderLine(models.Model):
     def _get_product_purchase_description(self, product_lang):
         self.ensure_one()
 
-        name = product_lang.display_name
-        if product_lang.description_purchase:
-            name += '\n' + product_lang.description_purchase
+        name = product_lang.name
+        if product_lang.default_code:
+            name = '[%s] %s' % (product_lang.default_code, name)
 
         color_value = product_lang.color_value
         size_value = product_lang.size_value

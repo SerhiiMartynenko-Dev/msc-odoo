@@ -9,13 +9,9 @@
         <field name="inherit_id" ref="base.view_partner_form" />
         <field name="priority" eval="999" />
         <field name="arch" type="xml">
-            <notebook position="inside">
-                <page name="photo" string="Photo">
-                    <center>
-                        <field name="image_1920" widget="image" options="{'preview_image': 'image_1920'}"/>
-                    </center>
-                </page>
-            </notebook>
+            <field name="image_1920" position="attributes">
+                <attribute name="options">{'preview_image': 'image_128', 'zoom': True}</attribute>
+            </field>
         </field>
     </record>
 

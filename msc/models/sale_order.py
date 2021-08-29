@@ -110,17 +110,23 @@ class MSCSaleOrderLine(models.Model):
     #
     #
     #
-    def _get_sale_order_line_multiline_description_variants(self):
-        if self.product_id:
-            color_value = self.product_id.color_value
-            size_value = self.product_id.size_value
+    def get_sale_order_line_multiline_description_sale(self, product):
+        name = ''
+
+        if product:
+            name = product.name
+            if product.default_code:
+                name = '[%s] %s' % (product.default_code, name)
+
+            color_value = product.color_value
+            size_value = product.size_value
 
             if color_value or size_value:
                 if color_value and size_value:
-                    return ' (%s, %s)' % (color_value, size_value)
+                    name += ' (%s, %s)' % (color_value, size_value)
                 else:
-                    return ' (%s)' % (color_value or size_value)
+                    name += ' (%s)' % (color_value or size_value)
 
-        return ''
+        return name
 
 
