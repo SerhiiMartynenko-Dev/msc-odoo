@@ -8,7 +8,9 @@ class MSCSaleOrder(models.Model):
     _inherit = 'sale.order'
 
     total_units = fields.Float(string="Total Units", digits='Product Unit of Measure', compute='_compute_total_units')
-    amount_stock_cost = fields.Monetary(string="Stock Cost", compute='_compute_amount_stock_cost')
+    amount_stock_cost = fields.Monetary(string="Total Stock Cost", compute='_compute_amount_stock_cost')
+    margin = fields.Monetary(copy=False)
+    margin_percent = fields.Float(copy=False)
 
     #
     #
@@ -20,10 +22,10 @@ class MSCSaleOrder(models.Model):
             record.total_units = sum(record.order_line.mapped('product_uom_qty'))
 
     @api.onchange('order_line')
-    @api.depends('order_line.stock_cost')
+    @api.depends('order_line.stock_cost', 'order_line.product_uom_qty')
     def _compute_amount_stock_cost(self):
         for record in self:
-            record.amount_stock_cost = sum(record.order_line.mapped('stock_cost'))
+            record.amount_stock_cost = sum([r.stock_cost * r.product_uom_qty for r in record.order_line])
 
     #
     #
@@ -78,7 +80,10 @@ class MSCSaleOrderLine(models.Model):
                                      compute='_compute_discount_price',
                                      readonly=False)
 
-    stock_cost = fields.Monetary(related='product_id.stock_cost', store=True)
+    purchase_price = fields.Float(copy=False)
+    stock_cost = fields.Monetary(related='product_id.stock_cost', store=True, copy=False)
+    margin = fields.Monetary(copy=False)
+    margin_percent = fields.Float(copy=False)
 
     #
     #
@@ -97,8 +102,31 @@ class MSCSaleOrderLine(models.Model):
         for record in self:
             record.discount_price = record.price_unit * (1 - (record.discount or 0.0) / 100.0)
 
-    @api.depends('product_id.stock_cost')
+    @api.depends('stock_cost', 'product_id.stock_cost', 'product_id.standard_price')
     def _compute_purchase_price(self):
         for record in self:
             record.purchase_price = record.stock_cost or record.product_id.standard_price
+
+    #
+    #
+    #
+    def get_sale_order_line_multiline_description_sale(self, product):
+        name = ''
+
+        if product:
+            name = product.name
+            if product.default_code:
+                name = '[%s] %s' % (product.default_code, name)
+
+            color_value = product.color_value
+            size_value = product.size_value
+
+            if color_value or size_value:
+                if color_value and size_value:
+                    name += ' (%s, %s)' % (color_value, size_value)
+                else:
+                    name += ' (%s)' % (color_value or size_value)
+
+        return name
+
 

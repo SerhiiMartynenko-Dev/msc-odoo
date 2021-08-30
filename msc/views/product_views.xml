@@ -54,8 +54,17 @@
         <field name="priority" eval="1000" />
         <field name="arch" type="xml">
             <field name="company_id" position="before">
-                <field name="stock_cost" />
+                <label for="stock_cost_select" string="Stock Cost" />
+                <div>
+                    <field name="stock_cost_select" widget="radio" options="{'horizontal': true}" /><br/>
+                    <field name="stock_cost_auto" attrs="{'invisible': [('stock_cost_select', '!=', 'auto')]}" />
+                    <field name="stock_cost_manual" attrs="{'invisible': [('stock_cost_select', '!=', 'manual')], 'required': [('stock_cost_select', '=', 'manual')]}" />
+                </div>
             </field>
+
+            <group name="group_lots_and_weight" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </group>
         </field>
     </record>
 
@@ -66,8 +75,17 @@
         <field name="priority" eval="1000" />
         <field name="arch" type="xml">
             <field name="company_id" position="before">
-                <field name="stock_cost" />
+                <label for="stock_cost_select" string="Stock Cost" />
+                <div>
+                    <field name="stock_cost_select" widget="radio" options="{'horizontal': true}" /><br/>
+                    <field name="stock_cost_auto" attrs="{'invisible': [('stock_cost_select', '!=', 'auto')]}" />
+                    <field name="stock_cost_manual" attrs="{'invisible': [('stock_cost_select', '!=', 'manual')], 'required': [('stock_cost_select', '=', 'manual')]}" />
+                </div>
             </field>
+
+            <group name="group_lots_and_weight" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </group>
         </field>
     </record>
 
@@ -78,8 +96,29 @@
         <field name="priority" eval="1000" />
         <field name="arch" type="xml">
             <field name="company_id" position="before">
-                <field name="stock_cost" />
+                <label for="stock_cost_select" string="Stock Cost" />
+                <div>
+                    <field name="stock_cost_select" widget="radio" options="{'horizontal': true}" /><br/>
+                    <field name="stock_cost_auto" attrs="{'invisible': [('stock_cost_select', '!=', 'auto')]}" />
+                    <field name="stock_cost_manual" attrs="{'invisible': [('stock_cost_select', '!=', 'manual')], 'required': [('stock_cost_select', '=', 'manual')]}" />
+                </div>
             </field>
+
+            <group name="group_lots_and_weight" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </group>
+        </field>
+    </record>
+
+    <record id="product_variant_easy_edit_view" model="ir.ui.view">
+        <field name="name">product.product.view.form.easy.inherit.msc</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_variant_easy_edit_view"/>
+        <field name="priority" eval="1000" />
+        <field name="arch" type="xml">
+            <group name="weight" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </group>
         </field>
     </record>
 
@@ -133,7 +172,8 @@
             <xpath expr="//group[@name='group_standard_price']/label[@for='standard_price']" position="replace" />
             <xpath expr="//group[@name='group_standard_price']/div[@name='standard_price_uom']" position="replace" />
 
-            <field name="stock_cost" position="replace" />
+            <xpath expr="//label[@for='stock_cost_select']" position="replace" />
+            <xpath expr="//field[@name='stock_cost_select']/.." position="replace" />
         </field>
     </record>
 
@@ -145,7 +185,8 @@
         <field name="groups_id" eval="[(6, 0, [ref('msc.group_msc_sale_user')])]" />
         <field name="mode">extension</field>
         <field name="arch" type="xml">
-            <field name="stock_cost" position="replace" />
+            <xpath expr="//label[@for='stock_cost_select']" position="replace" />
+            <xpath expr="//field[@name='stock_cost_select']/.." position="replace" />
         </field>
     </record>
 
@@ -157,7 +198,8 @@
         <field name="groups_id" eval="[(6, 0, [ref('msc.group_msc_sale_user')])]" />
         <field name="mode">extension</field>
         <field name="arch" type="xml">
-            <field name="stock_cost" position="replace" />
+            <xpath expr="//label[@for='stock_cost_select']" position="replace" />
+            <xpath expr="//field[@name='stock_cost_select']/.." position="replace" />
         </field>
     </record>
 
@@ -172,7 +214,8 @@
         <field name="mode">extension</field>
         <field name="arch" type="xml">
             <field name="standard_price" position="replace" />
-            <field name="stock_cost" position="replace" />
+            <xpath expr="//label[@for='stock_cost_select']" position="replace" />
+            <xpath expr="//field[@name='stock_cost_select']/.." position="replace" />
         </field>
     </record>
 
