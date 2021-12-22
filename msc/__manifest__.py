@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': "MSC",
-    'version': '14.0.1.5.12',
+    'version': '14.0.1.5.13',
     'category': 'CRM',
     'application': True,
     'installable': True,
@@ -45,6 +45,7 @@
 
         'views/account_move_view.xml',
         'views/product_views.xml',
+        'views/product_pricelist_views.xml',
         'views/purchase_views.xml',
         'views/res_config_settings_views.xml',
         'views/res_partner_views.xml',

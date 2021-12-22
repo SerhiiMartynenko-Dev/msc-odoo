@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <record id="product_pricelist_view" model="ir.ui.view">
+        <field name="name">product.pricelist.form.inherit.msc</field>
+        <field name="model">product.pricelist</field>
+        <field name="inherit_id" ref="product.product_pricelist_view"/>
+        <field name="priority" eval="1000" />
+        <field name="arch" type="xml">
+            <field name="item_ids" position="before">
+                <div class="oe_read_only">
+                    <button type="object" name="action_add_item"
+                            string="Add Price List Item" icon="fa-magic" class="btn-warning" />
+                </div>
+            </field>
+        </field>
+    </record>
+
+
+
+    <record id="product_pricelist_item_form_view" model="ir.ui.view">
+        <field name="name">product.pricelist.item.form.inherit.msc</field>
+        <field name="model">product.pricelist.item</field>
+        <field name="inherit_id" ref="product.product_pricelist_item_form_view"/>
+        <field name="priority" eval="1000" />
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <field name="applied_on" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </field>
+            <field name="product_id" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </field>
+            <field name="product_id" position="after">
+                <field name="product_domain"
+                       widget="domain" options="{'model': 'product.product', 'in_dialog': true}" />
+            </field>
+
+            <sheet position="after">
+                <footer>
+                    <button type="object" name="action_save"
+                            string="Confirm" class="btn-primary" />
+                    <button special="cancel" string="Cancel" />
+                </footer>
+            </sheet>
+        </field>
+    </record>
+
+
+
+</odoo>
