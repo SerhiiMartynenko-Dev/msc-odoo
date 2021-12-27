@@ -76,6 +76,7 @@ msgstr "Печатать"
 #. module: msc
 #: model_terms:ir.ui.view,arch_db:msc.view_wizard_print_product_label_form
 #: model_terms:ir.ui.view,arch_db:msc.view_wizard_order_set_discount_form
+#: model_terms:ir.ui.view,arch_db:msc.view_wizard_reassessment_form
 msgid "Cancel"
 msgstr "Отмена"
 
@@ -97,6 +98,7 @@ msgstr "Напечатать чек"
 
 #. module: msc
 #: model_terms:ir.ui.view,arch_db:msc.view_wizard_order_set_discount_form
+#: model_terms:ir.ui.view,arch_db:msc.view_wizard_reassessment_form
 msgid "Confirm"
 msgstr "Подтвердить"
 
@@ -166,4 +168,11 @@ msgstr "Выберите атрибут, Который используется
 #: model_terms:ir.ui.view,arch_db:msc.view_partner_form
 msgid "Photo"
 msgstr "Фото"
+
+#. module: msc
+#: model:ir.actions.server,name:msc.action_reassessment
+#: model:ir.ui.menu,name:msc.menu_reassessment
+#: code:addons/msc/wizard/wizard_reassessment.py:40
+msgid "Reassessment"
+msgstr "Переоценка"
 

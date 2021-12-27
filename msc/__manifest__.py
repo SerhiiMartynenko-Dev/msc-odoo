@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': "MSC",
-    'version': '14.0.1.5.13',
+    'version': '14.0.1.5.14',
     'category': 'CRM',
     'application': True,
     'installable': True,
@@ -55,6 +55,7 @@
 
         'wizard/wizard_order_set_discount_views.xml',
         'wizard/wizard_print_product_label_views.xml',
+        'wizard/wizard_reassessment_views.xml',
     ],
 
 
