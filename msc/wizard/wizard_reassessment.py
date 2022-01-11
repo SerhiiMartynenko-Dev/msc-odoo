@@ -59,10 +59,11 @@ class MSCReassessmentWizard(models.TransientModel):
         if not products:
             raise ValidationError(_("No any products found for specified domain"))
 
-        for product in products:
+        product_templates = products.mapped('product_tmpl_id')
+        for product_template in product_templates:
             # @TODO
             if self.mode == 'percent':
-                product.list_price = tools.float_round(product.list_price * self.value / 100.0, precision_digits=0)
+                product_template.list_price = tools.float_round(product_template.list_price * self.value / 100.0, precision_digits=0)
 
         # remove wizard
         self.unlink()
