@@ -7,6 +7,8 @@
             <t t-set="uah" t-value="docs.env.ref('base.UAH')" />
 
             <t t-foreach="docs" t-as="doc">
+                <t t-set="doc" t-value="doc.sudo()" />
+
                 <div t-att-data-oe-model="doc and doc._name"
                      t-att-data-oe-id="doc and doc.id"
                      t-att-data-oe-lang="doc and doc.env.context.get('lang')"
