@@ -1,0 +1,78 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* kw_checkbox_product
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-10-19 13:53+0000\n"
+"PO-Revision-Date: 2021-10-19 13:53+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: kw_checkbox_product
+#: model_terms:ir.ui.view,arch_db:kw_checkbox_product.kw_checkbox_product_product_template_form
+msgid "Checkbox"
+msgstr ""
+
+#. module: kw_checkbox_product
+#: model:ir.model.fields,field_description:kw_checkbox_product.field_product_category__display_name
+#: model:ir.model.fields,field_description:kw_checkbox_product.field_product_product__display_name
+#: model:ir.model.fields,field_description:kw_checkbox_product.field_product_template__display_name
+msgid "Display Name"
+msgstr "Відобразити назву"
+
+#. module: kw_checkbox_product
+#: model:ir.model.fields,field_description:kw_checkbox_product.field_product_category__id
+#: model:ir.model.fields,field_description:kw_checkbox_product.field_product_product__id
+#: model:ir.model.fields,field_description:kw_checkbox_product.field_product_template__id
+msgid "ID"
+msgstr ""
+
+#. module: kw_checkbox_product
+#: model:ir.model.fields,field_description:kw_checkbox_product.field_product_category____last_update
+#: model:ir.model.fields,field_description:kw_checkbox_product.field_product_product____last_update
+#: model:ir.model.fields,field_description:kw_checkbox_product.field_product_template____last_update
+msgid "Last Modified on"
+msgstr "Останні зміни на"
+
+#. module: kw_checkbox_product
+#: model:ir.model,name:kw_checkbox_product.model_product_product
+msgid "Product"
+msgstr "Товар"
+
+#. module: kw_checkbox_product
+#: model:ir.model,name:kw_checkbox_product.model_product_category
+#: model:ir.model.fields,field_description:kw_checkbox_product.field_product_category__kw_checkbox_product_category_id
+#: model:ir.model.fields,field_description:kw_checkbox_product.field_product_product__kw_checkbox_product_category_id
+#: model:ir.model.fields,field_description:kw_checkbox_product.field_product_template__kw_checkbox_product_category_id
+msgid "Product Category"
+msgstr "Категорія товару"
+
+#. module: kw_checkbox_product
+#: model:ir.model,name:kw_checkbox_product.model_product_template
+msgid "Product Template"
+msgstr "Шаблон товару"
+
+#. module: kw_checkbox_product
+#: model:ir.model.fields,field_description:kw_checkbox_product.field_product_product__kw_checkbox_footer
+#: model:ir.model.fields,field_description:kw_checkbox_product.field_product_template__kw_checkbox_footer
+msgid "Receipt footer"
+msgstr "Нижній колонтитул чека"
+
+#. module: kw_checkbox_product
+#: model:ir.model.fields,field_description:kw_checkbox_product.field_product_product__kw_checkbox_header
+#: model:ir.model.fields,field_description:kw_checkbox_product.field_product_template__kw_checkbox_header
+msgid "Receipt header"
+msgstr "Верхній колонтитул чека"
+
+#. module: kw_checkbox_product
+#: model:ir.model.fields,field_description:kw_checkbox_product.field_product_product__kw_checkbox_uktzed
+#: model:ir.model.fields,field_description:kw_checkbox_product.field_product_template__kw_checkbox_uktzed
+msgid "UKTZED"
+msgstr ""
