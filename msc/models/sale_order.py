@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 
 
-from odoo import api, models, fields
+from odoo import api, models, fields, _
+from odoo.exceptions import UserError
 
 
 class MSCSaleOrder(models.Model):
@@ -11,6 +12,10 @@ class MSCSaleOrder(models.Model):
     amount_stock_cost = fields.Monetary(string="Total Stock Cost", compute='_compute_amount_stock_cost')
     margin = fields.Monetary(copy=False)
     margin_percent = fields.Float(copy=False)
+
+    invoice_paid = fields.Boolean(
+        compute='_compute_invoice_paid',
+    )
 
     #
     #
@@ -27,6 +32,10 @@ class MSCSaleOrder(models.Model):
         for record in self:
             record.amount_stock_cost = sum([r.stock_cost * r.product_uom_qty for r in record.order_line])
 
+    def _compute_invoice_paid(self):
+        for record in self:
+            record.invoice_paid = record.invoice_ids and all([r.payment_state in ('paid', 'in_payment') for r in record.invoice_ids])
+
     #
     #
     #
@@ -34,7 +43,36 @@ class MSCSaleOrder(models.Model):
         self.ensure_one()
         return self.env['msc.wizard.order_set_discount'].create_and_show(self)
 
+    def action_print_receipt_regular_customer(self):
+        # check settings
+        sale_team = self.env.company and self.env.company.msc_default_sale_team_id
+        if not sale_team:
+            raise UserError(_("Default sales team not defined in the settings!"))
+
+        if not sale_team.nonfiscal_journal_id:
+            raise UserError(_("Non-Fiscal operations journal not defined for sales team!"))
+
+        self._msc_get_invoice()
+
+        for invoice in self.invoice_ids:
+            if invoice.payment_state not in ('in_payment', 'paid'):
+                self.env['account.payment.register'].with_context(
+                    active_model='account.move',
+                    active_id=invoice.id,
+                    active_ids=invoice.ids
+                ).create({
+                    'journal_id': sale_team.nonfiscal_journal_id.id,
+                })._create_payments()
+
+        return self.invoice_ids[0].action_print_receipt()
+
     def action_print_receipt(self):
+        return self.env['msc.wizard.print_receipt'].create_and_show(sale_order=self)
+
+    #
+    #
+    #
+    def _msc_get_invoice(self):
         self.ensure_one()
         if self.state == 'cancel':
             return
@@ -63,13 +101,8 @@ class MSCSaleOrder(models.Model):
         for invoice in self.invoice_ids:
             if invoice.state == 'draft':
                 invoice.action_post()
-            if invoice.payment_state not in ('in_payment', 'paid'):
-                self.env['account.payment.register'].with_context(
-                    active_model='account.move',
-                    active_ids=invoice.ids
-                ).create({})._create_payments()
 
-        return self.invoice_ids[0].action_print_receipt()
+        return self.invoice_ids[0]
 
 
 class MSCSaleOrderLine(models.Model):

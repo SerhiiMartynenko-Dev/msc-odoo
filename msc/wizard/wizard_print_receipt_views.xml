@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+
+    <record id="view_wizard_print_receipt_form" model="ir.ui.view">
+        <field name="name">msc.wizard.print_receipt.form</field>
+        <field name="model">msc.wizard.print_receipt</field>
+        <field name="arch" type="xml">
+            <form create="0" edit="0" duplicate="0" delete="0" class="text-center">
+                <sheet>
+                    <field name="id" invisible="1" />
+                    <field name="currency_id" invisible="1" />
+
+                    <label for="amount_with_commission" />
+                    <h1 class="text-center text-success font-weight-bold">
+                        <field name="amount_with_commission" readonly="1" />
+                    </h1>
+                </sheet>
+                <footer>
+                    <button type="object" name="action_payment_received"
+                            string="Payment received" icon="fa-check" class="btn-success" />
+                    <button type="object" name="action_payment_rejected"
+                            string="Payment rejected" icon="fa-ban" class="btn-danger" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+
+</odoo>

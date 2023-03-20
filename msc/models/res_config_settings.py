@@ -9,3 +9,7 @@ class MSCResConfigSettings(models.TransientModel):
 
     msc_color_attribute = fields.Many2one(related='company_id.msc_color_attribute', readonly=False)
 
+    msc_default_sale_team_id = fields.Many2one(
+        related='company_id.msc_default_sale_team_id',
+        readonly=False,
+    )

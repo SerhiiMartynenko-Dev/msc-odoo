@@ -3,6 +3,7 @@ id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 
 access_msc_wizard_order_set_discount,msc_wizard_order_set_discount,model_msc_wizard_order_set_discount,,1,1,1,1
 access_msc_wizard_print_product_label,msc_wizard_print_product_label,model_msc_wizard_print_product_label,,1,1,1,1
+access_msc_wizard_print_receipt,msc_wizard_print_receipt,model_msc_wizard_print_receipt,,1,1,1,1
 access_msc_wizard_reassessment,msc_wizard_reassessment,model_msc_wizard_reassessment,,1,1,1,1
 
 access_crm_lead_msc_sale_user,crm_lead_msc_sale_user,crm.model_crm_lead,msc.group_msc_sale_user,1,1,1,1

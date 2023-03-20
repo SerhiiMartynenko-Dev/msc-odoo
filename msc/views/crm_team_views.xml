@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <record id="crm_team_view_form" model="ir.ui.view">
+        <field name="name">crm.team.form.inherit.msc</field>
+        <field name="model">crm.team</field>
+        <field name="inherit_id" ref="sales_team.crm_team_view_form" />
+        <field name="priority" eval="999" />
+        <field name="arch" type="xml">
+            <group name="right" position="inside">
+                <field name="nonfiscal_journal_id" />
+                <field name="fiscal_journal_id" />
+                <field name="fiscal_checkbox_cashier_id"
+                       attrs="{'invisible': [('fiscal_journal_id', '=', False)], 'required': [('fiscal_journal_id', '!=', False)]}" />
+                <field name="fiscal_checkbox_cash_register_id"
+                       attrs="{'invisible': [('fiscal_journal_id', '=', False)], 'required': [('fiscal_journal_id', '!=', False)]}" />
+            </group>
+        </field>
+    </record>
+
+
+</odoo>
