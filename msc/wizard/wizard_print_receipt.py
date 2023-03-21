@@ -67,7 +67,8 @@ class MSCPrintReceiptWizard(models.TransientModel):
 
         amount_with_commission = 0.0
         for line in sale_order.order_line:
-            amount_with_commission += float_round(float_round(_to_uah(line.price_total / line.product_uom_qty) / (1 - transfer_commission), precision_rounding=uah.rounding)  * line.product_uom_qty, precision_rounding=uah.rounding)
+            price_uah = float_round(_to_uah(line.discount_price) / (1 - transfer_commission), precision_rounding=uah.rounding)
+            amount_with_commission += float_round(price_uah * line.product_uom_qty, precision_rounding=uah.rounding)
 
         values.update({
             'amount': _to_uah(sale_order.amount_total),
