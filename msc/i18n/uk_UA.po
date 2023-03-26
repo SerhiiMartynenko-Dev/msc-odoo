@@ -565,3 +565,9 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:msc.report_receipt
 msgid "грн"
 msgstr ""
+
+#. module: msc
+#: model:ir.model.fields,field_description:msc.field_res_company__msc_receipt_width
+#: model:ir.model.fields,field_description:msc.field_res_config_settings__msc_receipt_width
+msgid "Receipt Width (mm)"
+msgstr "Ширина чеку (мм)"

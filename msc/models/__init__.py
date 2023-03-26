@@ -7,6 +7,7 @@ from . import crm_team
 from . import product
 from . import product_pricelist
 from . import purchase
+from . import receipt
 from . import res_company
 from . import res_config_settings
 from . import res_partner_bank

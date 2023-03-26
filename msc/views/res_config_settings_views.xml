@@ -46,6 +46,18 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_left_pane">
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label for="msc_receipt_width" />
+                                <div class="content-group">
+                                    <div class="mt8">
+                                        <field name="msc_receipt_width" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </xpath>

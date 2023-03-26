@@ -13,3 +13,6 @@ class MSCResConfigSettings(models.TransientModel):
         related='company_id.msc_default_sale_team_id',
         readonly=False,
     )
+
+    msc_receipt_width = fields.Integer(related='company_id.msc_receipt_width', readonly=False)
+

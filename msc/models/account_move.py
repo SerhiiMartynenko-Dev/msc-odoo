@@ -39,7 +39,7 @@ class MSCAccountMove(models.Model):
             return {
                 'type': 'ir.actions.act_url',
                 'target': 'new',
-                'url': self.kw_checkbox_receipt_ids[0].pdf_url,
+                'url': self.kw_checkbox_receipt_ids[0].png_url,
             }
         else:
             return {

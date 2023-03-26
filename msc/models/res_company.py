@@ -13,3 +13,5 @@ class MSCResCompany(models.Model):
         comodel_name='crm.team',
         default=lambda self: self.env['crm.team'].search([], limit=1),
     )
+
+    msc_receipt_width = fields.Integer(string="Receipt Width (mm)", required=True, default=50)
