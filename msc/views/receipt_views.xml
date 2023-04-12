@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <record id="kw_checkbox_kw_checkbox_receipt_form" model="ir.ui.view">
+        <field name="name">kw.checkbox.receipt.view.form.inherit.msc</field>
+        <field name="model">kw.checkbox.receipt</field>
+        <field name="inherit_id" ref="kw_checkbox.kw_checkbox_kw_checkbox_receipt_form" />
+        <field name="arch" type="xml">
+            <field name="pdf_url" position="after">
+                <field name="png_url" widget="url"/>
+            </field>
+        </field>
+    </record>
+
+
+</odoo>

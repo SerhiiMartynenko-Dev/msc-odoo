@@ -1,40 +1,400 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# * msc
+# 	* msc
 #
-# Translators:
-# Maksym Nastenko <m.nastenko@runbins.com>, 2020
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 14.0\n"
+"Project-Id-Version: Odoo Server 14.0+e-20230320\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Maksym Nastenko <m.nastenko@runbins.com>, 2020\n"
+"POT-Creation-Date: 2023-03-20 15:51+0000\n"
+"PO-Revision-Date: 2023-03-20 15:51+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: ru\n"
-
-
-#. module: msc
-#: model:ir.actions.report,name:msc.action_receipt
-msgid "Receipt"
-msgstr "Чек"
+"Plural-Forms: \n"
 
 #. module: msc
+#: model:ir.actions.report,print_report_name:msc.action_product_label_report
+msgid "'Label - %s' % (object.barcode or '')"
+msgstr "'Этикетка - %s' % (object.barcode or '')"
+
+#. module: msc
+#: model:ir.actions.report,print_report_name:msc.action_receipt
+msgid "'Receipt - %s' % (object.name)"
+msgstr "'Чек - %s' % (object.name)"
+
+#. module: msc
+#: model_terms:ir.ui.view,arch_db:msc.report_receipt
+msgid ""
+"<br/>\n"
+"                                Нефіскальний чек"
+msgstr ""
+
+#. module: msc
+#: model_terms:ir.ui.view,arch_db:msc.report_receipt
+msgid "<span>Сума всього:</span>"
+msgstr ""
+
+#. module: msc
+#: model:ir.model.fields,help:msc.field_product_product__type
+#: model:ir.model.fields,help:msc.field_product_template__type
+msgid ""
+"A storable product is a product for which you manage stock. The Inventory app has to be installed.\n"
+"A consumable product is a product for which stock is not managed.\n"
+"A service is a non-material product you provide."
+msgstr ""
+"Складируемый - это продукт, для которого вы отслеживаете остатки на складе. "
+"Необходимо установить приложение Склад. Потребляемый - это продукт, для "
+"которого остатки не учитываются. Услуга - это нематериальный продукт, "
+"который вы предоставляете."
+
+#. module: msc
+#: code:addons/msc/wizard/wizard_print_receipt.py:0
+#, python-format
+msgid "Account for transfer commission not defined!"
+msgstr "Счет для комиссии за перевод не указан!"
+
+#. module: msc
+#: code:addons/msc/models/product_pricelist.py:0
+#: model_terms:ir.ui.view,arch_db:msc.product_pricelist_view
+#, python-format
+msgid "Add Price List Item"
+msgstr ""
+
+#. module: msc
+#: model:ir.model.fields,field_description:msc.field_msc_wizard_print_receipt__amount
+msgid "Amount"
+msgstr "Сума"
+
+#. module: msc
+#: model:ir.model.fields,field_description:msc.field_msc_wizard_print_receipt__amount_with_commission
+msgid "Amount to pay"
+msgstr "Сума к оплате"
+
+#. module: msc
+#: model_terms:ir.ui.view,arch_db:msc.view_order_form
+msgid "Are you sure that you want to confirm order and print receipt?"
+msgstr "Вы действительно хотите подтвердить заказ и напечатать текст?"
+
+#. module: msc
+#: model:ir.model.fields.selection,name:msc.selection__product_product__stock_cost_select__auto
+#: model:ir.model.fields.selection,name:msc.selection__product_template__stock_cost_select__auto
+msgid "Auto"
+msgstr "Автоматически"
+
+#. module: msc
+#: model:ir.model,name:msc.model_res_partner_bank
+msgid "Bank Accounts"
+msgstr "Банковские счета"
+
+#. module: msc
+#: model:ir.model.fields,field_description:msc.field_product_product__barcode
+msgid "Barcode"
+msgstr "Штрих-код"
+
+#. module: msc
+#: model_terms:ir.ui.view,arch_db:msc.product_pricelist_item_form_view
+#: model_terms:ir.ui.view,arch_db:msc.view_wizard_order_set_discount_form
+#: model_terms:ir.ui.view,arch_db:msc.view_wizard_print_product_label_form
+#: model_terms:ir.ui.view,arch_db:msc.view_wizard_reassessment_form
+msgid "Cancel"
+msgstr "Отмена"
+
+#. module: msc
+#: model:ir.model.fields,field_description:msc.field_crm_team__fiscal_checkbox_cash_register_id
+msgid "Cash register"
+msgstr "Кассовый регистратор"
+
+#. module: msc
+#: code:addons/msc/wizard/wizard_print_receipt.py:0
+#, python-format
+msgid "Cash register not defined for sales team!"
+msgstr "Кассовый регистратор для команды продаж не указан!"
+
+#. module: msc
+#: model:ir.model.fields,field_description:msc.field_crm_team__fiscal_checkbox_cashier_id
+msgid "Cashier"
+msgstr "Кассир"
+
+#. module: msc
+#: code:addons/msc/wizard/wizard_print_receipt.py:0
+#, python-format
+msgid "Cashier not defined for sales team!"
+msgstr "Кассир для команды продаж не указан!"
+
+#. module: msc
+#: model_terms:ir.ui.view,arch_db:msc.res_config_settings_view_form
+msgid "Color Attribute"
+msgstr "Атрибут цвета"
+
+#. module: msc
+#: model:ir.model.fields,field_description:msc.field_product_product__color_value
+msgid "Color Value"
+msgstr ""
+
+#. module: msc
+#: model:ir.model.fields,field_description:msc.field_account_setup_bank_manual_config__transfer_commission_account_id
+#: model:ir.model.fields,field_description:msc.field_res_partner_bank__transfer_commission_account_id
+msgid "Commission account"
+msgstr "Счет для комиссии"
+
+#. module: msc
+#: model:ir.model,name:msc.model_res_company
+msgid "Companies"
+msgstr "Компании"
+
+#. module: msc
+#: model:ir.model,name:msc.model_res_config_settings
+msgid "Config Settings"
+msgstr "Настройки конфигурации"
+
+#. module: msc
+#: model_terms:ir.ui.view,arch_db:msc.product_pricelist_item_form_view
+#: model_terms:ir.ui.view,arch_db:msc.view_wizard_order_set_discount_form
+#: model_terms:ir.ui.view,arch_db:msc.view_wizard_reassessment_form
+msgid "Confirm"
+msgstr "Подтвердить"
+
+#. module: msc
+#: model:ir.model.fields,field_description:msc.field_sale_order_line__purchase_price
+msgid "Cost"
+msgstr "Стоимость"
+
+#. module: msc
+#: model:ir.model.fields,field_description:msc.field_msc_wizard_print_receipt__currency_id
+msgid "Currency"
+msgstr ""
+
+#. module: msc
+#: model_terms:ir.ui.view,arch_db:msc.res_config_settings_view_form
+msgid "Default sales team"
+msgstr "Команда продаж по умолчанию"
+
+#. module: msc
+#: code:addons/msc/models/sale_order.py:0
+#: code:addons/msc/wizard/wizard_print_receipt.py:0
+#: code:addons/msc/wizard/wizard_print_receipt.py:0
+#, python-format
+msgid "Default sales team not defined in the settings!"
+msgstr "Команда прода по умолчанию не указана в настройках!"
+
+#. module: msc
+#: model:ir.model.fields,field_description:msc.field_msc_wizard_order_set_discount__discount
+msgid "Discount"
+msgstr ""
+
+#. module: msc
+#: model:ir.model.fields,field_description:msc.field_sale_order_line__discount
+msgid "Discount (%)"
+msgstr "Скидка (%)"
+
+#. module: msc
+#: model:ir.model.fields,field_description:msc.field_sale_order_line__discount_price
+msgid "Discount Price"
+msgstr ""
+
+#. module: msc
+#: model:ir.model.fields,help:msc.field_stock_landed_cost_lines__split_method
+msgid ""
+"Equal : Cost will be equally divided.\n"
+"By Quantity : Cost will be divided according to product's quantity.\n"
+"By Current cost : Cost will be divided according to product's current cost.\n"
+"By Weight : Cost will be divided depending on its weight.\n"
+"By Volume : Cost will be divided depending on its volume."
+msgstr ""
+
+#. module: msc
+#: model:ir.model.fields,field_description:msc.field_crm_team__fiscal_journal_id
+msgid "Fiscal operations journal"
+msgstr "Журнал фискальних операцый"
+
+#. module: msc
+#: code:addons/msc/wizard/wizard_print_receipt.py:0
+#: code:addons/msc/wizard/wizard_print_receipt.py:0
+#, python-format
+msgid "Fiscal operations journal not defined for sales team!"
+msgstr "Журнал фискальных операцый не указан для команды продаж!"
+
+#. module: msc
+#: model:ir.model.fields.selection,name:msc.selection__msc_wizard_print_product_label__mode__all
+msgid "For all products"
+msgstr "Всех товаров"
+
+#. module: msc
+#: model:ir.model.fields,help:msc.field_product_product__barcode
+msgid "International Article Number used for product identification."
+msgstr "Международный  номер товара используется для идентификации товара."
+
+#. module: msc
+#: model:ir.model.fields,field_description:msc.field_sale_order__invoice_paid
+msgid "Invoice Paid"
+msgstr ""
+
+#. module: msc
+#: code:addons/msc/wizard/wizard_print_receipt.py:0
+#, python-format
+msgid "Invoice already paid or in payment"
+msgstr "Инвойс уже оплачен"
+
+#. module: msc
+#: model:ir.model,name:msc.model_account_move
+msgid "Journal Entry"
+msgstr "Запись журнала"
+
+#. module: msc
+#: model_terms:ir.ui.view,arch_db:msc.res_config_settings_view_form
+msgid "Label Printing"
+msgstr "Печать этикеток"
+
+#. module: msc
+#: model:ir.actions.server,name:msc.action_move_barcode_to_internal_code
+msgid "MSC: Move barcode to internal code"
+msgstr ""
+
+#. module: msc
+#: model:ir.model.fields.selection,name:msc.selection__product_product__stock_cost_select__manual
+#: model:ir.model.fields.selection,name:msc.selection__product_template__stock_cost_select__manual
+msgid "Manual"
+msgstr "Вручную"
+
+#. module: msc
+#: model:ir.model.fields,field_description:msc.field_sale_order__margin
+#: model:ir.model.fields,field_description:msc.field_sale_order_line__margin
+msgid "Margin"
+msgstr "Наценка"
+
+#. module: msc
+#: model:ir.model.fields,field_description:msc.field_sale_order__margin_percent
+#: model:ir.model.fields,field_description:msc.field_sale_order_line__margin_percent
+msgid "Margin (%)"
+msgstr ""
+
+#. module: msc
+#: model:ir.model.fields,field_description:msc.field_msc_wizard_reassessment__mode
+msgid "Mode"
+msgstr ""
+
+#. module: msc
+#: code:addons/msc/wizard/wizard_print_receipt.py:0
+#, python-format
+msgid "More than one invoice already created for this order"
+msgstr "Заказ связан с более чем одним инвойсом"
+
+#. module: msc
+#: model:ir.model.fields,field_description:msc.field_res_company__msc_color_attribute
+#: model:ir.model.fields,field_description:msc.field_res_config_settings__msc_color_attribute
+msgid "Msc Color Attribute"
+msgstr ""
+
+#. module: msc
+#: model:ir.model.fields,field_description:msc.field_res_company__msc_default_sale_team_id
+#: model:ir.model.fields,field_description:msc.field_res_config_settings__msc_default_sale_team_id
+msgid "Msc Default Sale Team"
+msgstr ""
+
+#. module: msc
+#: code:addons/msc/models/product_pricelist.py:0
+#: code:addons/msc/wizard/wizard_reassessment.py:0
+#, python-format
+msgid "No any products found for specified domain"
+msgstr ""
+
+#. module: msc
+#: model:ir.model.fields,field_description:msc.field_crm_team__nonfiscal_journal_id
+msgid "Non fiscal operations journal"
+msgstr "Журнал нефискальных операций"
+
+#. module: msc
+#: code:addons/msc/models/sale_order.py:0
+#, python-format
+msgid "Non-Fiscal operations journal not defined for sales team!"
+msgstr "Журнал нефискальных операций не указан для команды продаж!"
+
+#. module: msc
+#: code:addons/msc/wizard/wizard_reassessment.py:0
+#, python-format
+msgid "Not allowed"
+msgstr ""
+
+#. module: msc
+#: model:ir.model.fields,field_description:msc.field_msc_wizard_order_set_discount__order_id
+msgid "Order"
+msgstr ""
+
+#. module: msc
+#: model:ir.model.fields,field_description:msc.field_account_bank_statement_line__date_paid
+#: model:ir.model.fields,field_description:msc.field_account_move__date_paid
+#: model:ir.model.fields,field_description:msc.field_account_payment__date_paid
+msgid "Paid Date"
+msgstr "Дата оплаты"
+
+#. module: msc
+#: model_terms:ir.ui.view,arch_db:msc.view_wizard_print_receipt_form
+msgid "Payment received"
+msgstr ""
+
+#. module: msc
+#: model_terms:ir.ui.view,arch_db:msc.view_wizard_print_receipt_form
+msgid "Payment rejected"
+msgstr "Оплата принята"
+
+#. module: msc
+#: model:ir.model,name:msc.model_account_payment
+msgid "Payments"
+msgstr "Платежи"
+
+#. module: msc
+#: model:ir.model.fields.selection,name:msc.selection__msc_wizard_reassessment__mode__percent
+msgid "Percent"
+msgstr "Процент"
+
+#. module: msc
+#: model:ir.model.fields,field_description:msc.field_msc_wizard_print_product_label__mode
+msgid "Pint labels mode"
+msgstr "Печатать ценники"
+
+#. module: msc
+#: model:ir.model,name:msc.model_product_pricelist
+msgid "Pricelist"
+msgstr "Прайс-лист"
+
+#. module: msc
+#: model:ir.model,name:msc.model_product_pricelist_item
+msgid "Pricelist Rule"
+msgstr ""
+
+#. module: msc
+#: model_terms:ir.ui.view,arch_db:msc.view_wizard_print_product_label_form
+msgid "Print"
+msgstr "Печатать"
+
+#. module: msc
+#: code:addons/msc/wizard/wizard_print_receipt.py:0
 #: model_terms:ir.ui.view,arch_db:msc.view_move_form
+#: model_terms:ir.ui.view,arch_db:msc.view_order_form
+#, python-format
 msgid "Print Receipt"
 msgstr "Печатать Чек"
 
 #. module: msc
-#: code:addons/msc/models/account_move.py:17
+#: code:addons/msc/wizard/wizard_print_product_label.py:0
+#: model_terms:ir.ui.view,arch_db:msc.purchase_order_form
 #, python-format
-msgid "Receipt not paid yet"
-msgstr "Чек не оплачен"
+msgid "Print labels for products"
+msgstr "Печатать ценники"
 
 #. module: msc
-#: model:ir.model.fields,field_description:msc.field_account_move__date_paid
-msgid "Paid Date"
-msgstr "Дата оплаты"
+#: model:ir.model,name:msc.model_product_product
+msgid "Product"
+msgstr "Продукт"
+
+#. module: msc
+#: model:ir.model.fields,field_description:msc.field_msc_wizard_reassessment__product_domain
+#: model:ir.model.fields,field_description:msc.field_product_pricelist_item__product_domain
+msgid "Product Domain"
+msgstr ""
 
 #. module: msc
 #: model:ir.actions.report,name:msc.action_product_label_report
@@ -43,20 +403,102 @@ msgid "Product Label"
 msgstr "Ценник"
 
 #. module: msc
-#: model_terms:ir.ui.view,arch_db:msc.purchase_order_form
-#: code:addons/msc/wizard/wizard_print_product_label.py:35
-msgid "Print labels for products"
-msgstr "Печатать ценники"
+#: model:ir.model,name:msc.model_product_template
+msgid "Product Template"
+msgstr "Шаблон продукта"
 
 #. module: msc
-#: model:ir.model.fields,field_description:msc.field_msc_wizard_print_product_label__mode
-msgid "Pint labels mode"
-msgstr "Печатать ценники"
+#: model:ir.model.fields,field_description:msc.field_product_product__type
+#: model:ir.model.fields,field_description:msc.field_product_template__type
+msgid "Product Type"
+msgstr "Тип продукта"
 
 #. module: msc
-#: model:ir.model.fields.selection,name:msc.selection__msc_wizard_print_product_label__mode__all
-msgid "For all products"
-msgstr "Всех товаров"
+#: code:addons/msc/models/product_pricelist.py:0
+#: code:addons/msc/wizard/wizard_reassessment.py:0
+#, python-format
+msgid "Product domain value not defined"
+msgstr ""
+
+#. module: msc
+#: code:addons/msc/wizard/wizard_print_product_label.py:0
+#, python-format
+msgid "Products"
+msgstr ""
+
+#. module: msc
+#: model:ir.model,name:msc.model_purchase_order
+msgid "Purchase Order"
+msgstr "Заказ на закупку"
+
+#. module: msc
+#: model:ir.model,name:msc.model_purchase_order_line
+msgid "Purchase Order Line"
+msgstr "Позиция заказа на закупку"
+
+#. module: msc
+#: model_terms:ir.ui.view,arch_db:msc.report_product_label
+msgid "QR-code"
+msgstr ""
+
+#. module: msc
+#: code:addons/msc/wizard/wizard_reassessment.py:0
+#: model:ir.actions.server,name:msc.action_reassessment
+#: model:ir.ui.menu,name:msc.menu_reassessment
+#, python-format
+msgid "Reassessment"
+msgstr "Переоценка"
+
+#. module: msc
+#: model:ir.actions.report,name:msc.action_receipt
+msgid "Receipt"
+msgstr "Чек"
+
+#. module: msc
+#: code:addons/msc/models/account_move.py:0
+#, python-format
+msgid "Receipt not paid yet"
+msgstr "Чек не оплачен"
+
+#. module: msc
+#: model_terms:ir.ui.view,arch_db:msc.res_config_settings_view_form
+msgid "Receipts Printing"
+msgstr "Печать чеков"
+
+#. module: msc
+#: model_terms:ir.ui.view,arch_db:msc.view_order_form
+msgid "Regular Customer"
+msgstr "Постоянный клиент"
+
+#. module: msc
+#: model:ir.model.fields,field_description:msc.field_msc_wizard_print_receipt__sale_order_id
+msgid "Sale Order"
+msgstr ""
+
+#. module: msc
+#: model:res.groups,name:msc.group_msc_sale_user
+msgid "Sale User"
+msgstr ""
+
+#. module: msc
+#: model:ir.model,name:msc.model_sale_order
+msgid "Sales Order"
+msgstr "Заказ на продажу"
+
+#. module: msc
+#: model:ir.model,name:msc.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "Строка заказа на продажу"
+
+#. module: msc
+#: model:ir.model,name:msc.model_crm_team
+msgid "Sales Team"
+msgstr "Команда продаж"
+
+#. module: msc
+#: model_terms:ir.ui.view,arch_db:msc.res_config_settings_view_form
+msgid "Select default sales team"
+msgstr "Выберите команду продаж по умолчанию"
 
 #. module: msc
 #: model:ir.model.fields.selection,name:msc.selection__msc_wizard_print_product_label__mode__select
@@ -64,80 +506,68 @@ msgid "Select products"
 msgstr "Выбрать товары"
 
 #. module: msc
-#: code:addons/msc/wizard/wizard_print_product_label.py:55
-msgid "Products"
-msgstr "Товары"
-
-#. module: msc
-#: model_terms:ir.ui.view,arch_db:msc.view_wizard_print_product_label_form
-msgid "Print"
-msgstr "Печатать"
-
-#. module: msc
-#: model_terms:ir.ui.view,arch_db:msc.view_wizard_print_product_label_form
-#: model_terms:ir.ui.view,arch_db:msc.view_wizard_order_set_discount_form
-#: model_terms:ir.ui.view,arch_db:msc.view_wizard_reassessment_form
-msgid "Cancel"
-msgstr "Отмена"
-
+#: model_terms:ir.ui.view,arch_db:msc.res_config_settings_view_form
+msgid "Select the attribute for color"
+msgstr "Выберите атрибут, Который используется для цвета"
 
 #. module: msc
 #: model_terms:ir.ui.view,arch_db:msc.view_order_form
-msgid "Are you sure that you want to confirm order and print receipt?"
-msgstr "Вы действительно хотите подтвердить заказ и напечатать текст?"
+msgid "Set Discount"
+msgstr ""
 
 #. module: msc
-#: model_terms:ir.ui.view,arch_db:msc.view_order_form
-msgid "Print Receipt"
-msgstr "Напечатать чек"
-
-#. module: msc
-#: model_terms:ir.ui.view,arch_db:msc.view_order_form
-msgid "Print Receipt"
-msgstr "Напечатать чек"
-
-#. module: msc
-#: model_terms:ir.ui.view,arch_db:msc.view_wizard_order_set_discount_form
-#: model_terms:ir.ui.view,arch_db:msc.view_wizard_reassessment_form
-msgid "Confirm"
-msgstr "Подтвердить"
-
-#. module: msc
-#: code:addons/msc/wizard/wizard_order_set_discount.py:29
+#: code:addons/msc/wizard/wizard_order_set_discount.py:0
+#, python-format
 msgid "Set sale order discount"
 msgstr "Установить скидку на заказ"
 
 #. module: msc
-#: model:ir.model.fields,field_description:msc.field_product_template__stock_cost
+#: model:ir.model.fields,field_description:msc.field_product_product__size_value
+msgid "Size Value"
+msgstr ""
+
+#. module: msc
+#: model:ir.model.fields,field_description:msc.field_msc_wizard_print_product_label__source_id
+msgid "Source"
+msgstr ""
+
+#. module: msc
+#: model:ir.model.fields,field_description:msc.field_stock_landed_cost_lines__split_method
+msgid "Split Method"
+msgstr "Режим разделения"
+
+#. module: msc
 #: model:ir.model.fields,field_description:msc.field_product_product__stock_cost
+#: model:ir.model.fields,field_description:msc.field_product_template__stock_cost
+#: model:ir.model.fields,field_description:msc.field_sale_order_line__stock_cost
+#: model_terms:ir.ui.view,arch_db:msc.product_normal_form_view
 #: model_terms:ir.ui.view,arch_db:msc.product_template_form_view
 #: model_terms:ir.ui.view,arch_db:msc.product_template_only_form_view
-#: model_terms:ir.ui.view,arch_db:msc.product_normal_form_view
 msgid "Stock Cost"
 msgstr "Стоимость запаса"
 
 #. module: msc
-#: model:ir.model.fields,field_description:msc.field_sale_order__amount_stock_cost
-msgid "Total Stock Cost"
-msgstr "Общая стоимость запаса"
+#: model:ir.model.fields,field_description:msc.field_product_product__stock_cost_auto
+#: model:ir.model.fields,field_description:msc.field_product_template__stock_cost_auto
+msgid "Stock Cost Auto"
+msgstr ""
 
 #. module: msc
-#: model:ir.model.fields.selection,name:msc.selection__product_template__stock_cost_select__auto
-#: model:ir.model.fields.selection,name:msc.selection__product_product__stock_cost_select__auto
-msgid "Auto"
-msgstr "Автоматически"
+#: model:ir.model.fields,field_description:msc.field_product_product__stock_cost_manual
+#: model:ir.model.fields,field_description:msc.field_product_template__stock_cost_manual
+msgid "Stock Cost Manual"
+msgstr ""
 
 #. module: msc
-#: model:ir.model.fields.selection,name:msc.selection__product_template__stock_cost_select__manual
-#: model:ir.model.fields.selection,name:msc.selection__product_product__stock_cost_select__manual
-msgid "Manual"
-msgstr "Вручную"
+#: model:ir.model.fields,field_description:msc.field_product_product__stock_cost_select
+#: model:ir.model.fields,field_description:msc.field_product_template__stock_cost_select
+msgid "Stock Cost Type"
+msgstr ""
 
 #. module: msc
-#: model:ir.model.fields,field_description:msc.field_sale_order__total_units
-#: model:ir.model.fields,field_description:msc.field_purchase_order__total_units
-msgid "Total Units"
-msgstr "Всего единиц"
+#: model:ir.model,name:msc.model_stock_landed_cost_lines
+msgid "Stock Landed Cost Line"
+msgstr ""
 
 #. module: msc
 #: model:ir.model.fields,field_description:msc.field_stock_picking__total_demand
@@ -150,29 +580,58 @@ msgid "Total Done"
 msgstr "Всего сделано"
 
 #. module: msc
-#: model_terms:ir.ui.view,arch_db:msc.res_config_settings_view_form
-msgid "Label Printing"
-msgstr "Печать этикеток"
+#: model:ir.model.fields,field_description:msc.field_sale_order__amount_stock_cost
+msgid "Total Stock Cost"
+msgstr ""
 
 #. module: msc
-#: model_terms:ir.ui.view,arch_db:msc.res_config_settings_view_form
-msgid "Color Attribute"
-msgstr "Атрибут цвета"
+#: model:ir.model.fields,field_description:msc.field_purchase_order__total_units
+#: model:ir.model.fields,field_description:msc.field_sale_order__total_units
+msgid "Total Units"
+msgstr "Всего единиц"
 
 #. module: msc
-#: model_terms:ir.ui.view,arch_db:msc.res_config_settings_view_form
-msgid "Select the attribute for color"
-msgstr "Выберите атрибут, Который используется для цвета"
+#: model:ir.model,name:msc.model_stock_picking
+msgid "Transfer"
+msgstr "Перемещение"
 
 #. module: msc
-#: model_terms:ir.ui.view,arch_db:msc.view_partner_form
-msgid "Photo"
-msgstr "Фото"
+#: code:addons/msc/wizard/wizard_print_receipt.py:0
+#: model:ir.model.fields,field_description:msc.field_account_setup_bank_manual_config__transfer_commission
+#: model:ir.model.fields,field_description:msc.field_res_partner_bank__transfer_commission
+#, python-format
+msgid "Transfer commission"
+msgstr "Комиссия за перевод"
 
 #. module: msc
-#: model:ir.actions.server,name:msc.action_reassessment
-#: model:ir.ui.menu,name:msc.menu_reassessment
-#: code:addons/msc/wizard/wizard_reassessment.py:40
-msgid "Reassessment"
-msgstr "Переоценка"
+#: model:ir.model.fields,field_description:msc.field_msc_wizard_reassessment__value
+msgid "Value"
+msgstr ""
 
+#. module: msc
+#: model_terms:ir.ui.view,arch_db:msc.report_product_label
+msgid "Колір:"
+msgstr ""
+
+#. module: msc
+#: model_terms:ir.ui.view,arch_db:msc.report_product_label
+msgid "Розмір:"
+msgstr ""
+
+#. module: msc
+#: model_terms:ir.ui.view,arch_db:msc.report_receipt
+msgid ""
+"ФОП Мартиненко В.В.<br/>\n"
+"                                3200618434<br/>\n"
+"                                м. Київ, вул. Володимирська 20/1А"
+msgstr ""
+
+#. module: msc
+#: model_terms:ir.ui.view,arch_db:msc.report_receipt
+msgid "грн"
+msgstr ""
+
+#. module: msc
+#: model:ir.model.fields,field_description:msc.field_res_company__msc_receipt_width
+msgid "Receipt Width (mm)"
+msgstr "Ширина чека (мм)"
