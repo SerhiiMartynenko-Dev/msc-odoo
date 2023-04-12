@@ -1,20 +1,21 @@
 # -*- coding: utf-8 -*-
 {
     'name': "MSC",
-    'version': '14.0.1.6.2',
+    'version': '14.0.1.7.0',
     'category': 'CRM',
     'application': True,
     'installable': True,
     'auto_install': False,
 
     'depends': [
+        'account',
+        'crm',
+        'purchase',
         'sale_management',
         'sale_margin',
-        'purchase',
-        'stock_landed_costs',
-        'account',
         'sale_stock',
-        'crm',
+        'stock_account',
+        'stock_landed_costs',
 
         'kw_checkbox_invoice_to_receipt',
         'web_ir_actions_act_multi',
@@ -56,6 +57,7 @@
         'views/res_partner_bank_views.xml',
         'views/res_partner_views.xml',
         'views/sale_views.xml',
+        'views/stock_inventory_views.xml',
         'views/stock_picking_views.xml',
 
 

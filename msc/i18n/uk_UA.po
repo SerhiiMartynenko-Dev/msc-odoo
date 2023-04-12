@@ -571,3 +571,13 @@ msgstr ""
 #: model:ir.model.fields,field_description:msc.field_res_config_settings__msc_receipt_width
 msgid "Receipt Width (mm)"
 msgstr "Ширина чеку (мм)"
+
+#. module: msc
+#: model:ir.model.fields,field_description:msc.field_stock_inventory_line__stock_valuation_cost
+msgid "Total Amount"
+msgstr "Загальна сума"
+
+#. module: msc
+#: model_terms:ir.ui.view,arch_db:msc.stock_inventory_line_tree
+msgid "Add Manual Valuation"
+msgstr "Додати значення вручну"
