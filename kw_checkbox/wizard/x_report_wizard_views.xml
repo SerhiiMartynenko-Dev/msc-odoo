@@ -1,0 +1,78 @@
+<odoo>
+    <record id="kw_checkbox_wizard_view" model="ir.ui.view">
+        <field name="name">kw.wizard.x_report.view</field>
+        <field name="model">kw.wizard.x_report</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group>
+                        <field name="cash_register_id"/>
+                        <button type="object" name="get_reports_x"
+                                string="Get Report"/>
+                    </group>
+                    <group>
+                        <field name="rec_id"/>
+                        <field name="sell_receipts_count"/>
+                        <field name="return_receipts_count"/>
+                        <field name="transfers_count"/>
+                        <field name="transfers_sum"/>
+                        <field name="balance"/>
+                        <field name="initial"/>
+                        <field name="created_at"/>
+                        <field name="updated_at"/>
+                    </group>
+                </group>
+                <notebook>
+                    <page name="payments" string="Payments">
+                        <group>
+                            <field name="payment_line_ids" string="Payments">
+                                <tree>
+                                    <field name="rec_id"/>
+                                    <field name="code"/>
+                                    <field name="type"/>
+                                    <field name="label"/>
+                                    <field name="sell_sum"/>
+                                    <field name="return_sum"/>
+                                    <field name="service_in"/>
+                                    <field name="service_out"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </page>
+                    <page name="taxes" string="Taxes">
+                        <group>
+                            <field name="tax_line_ids" string="Taxes">
+                                <tree>
+                                    <field name="rec_id"/>
+                                    <field name="code"/>
+                                    <field name="label"/>
+                                    <field name="symbol"/>
+                                    <field name="rate"/>
+                                    <field name="sell_sum"/>
+                                    <field name="return_sum"/>
+                                    <field name="sales_turnover"/>
+                                    <field name="returns_turnover"/>
+                                    <field name="created_at"/>
+                                    <field name="setup_date"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </page>
+                </notebook>
+            </form>
+        </field>
+    </record>
+
+    <record id="kw_checkbox_wizard_get_x_report_action" model="ir.actions.act_window">
+        <field name="name">CashBox X Report Wizard</field>
+        <field name="res_model">kw.wizard.x_report</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="view_id" ref="kw_checkbox_wizard_view"/>
+     </record>
+
+    <menuitem id="kw_checkbox_wizard_get_x_report_action_menu"
+          action="kw_checkbox_wizard_get_x_report_action"
+          parent="kw_checkbox_settings_main_menu"
+          name="Checkbox X Report" sequence="800"/>
+</odoo>

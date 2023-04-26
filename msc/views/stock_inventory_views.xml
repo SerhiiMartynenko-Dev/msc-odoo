@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+
+    <record id="stock_inventory_line_tree" model="ir.ui.view">
+        <field name="name">stock.inventory.line.tree.inherit.msc</field>
+        <field name="model">stock.inventory.line</field>
+        <field name="inherit_id" ref="stock.stock_inventory_line_tree" />
+        <field name="priority" eval="999" />
+        <field name="arch" type="xml">
+            <field name="difference_qty" position="after">
+                <field name="stock_valuation_cost" />
+                <field name="currency_id" invisible="1" />
+                <field name="cost_method" invisible="1" />
+
+                <button type="object" name="action_revaluation"
+                        attrs="{'invisible': [('cost_method', '=', 'standard')]}"
+                        icon="fa-plus" title="Add Manual Valuation" />
+            </field>
+        </field>
+    </record>
+
+
+</odoo>
