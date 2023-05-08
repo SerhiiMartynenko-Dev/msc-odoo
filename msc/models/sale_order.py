@@ -52,11 +52,17 @@ class MSCSaleOrder(models.Model):
         if not sale_team.nonfiscal_journal_id:
             raise UserError(_("Non-Fiscal operations journal not defined for sales team!"))
 
+        # prepare invoice
         self._msc_get_invoice()
+
+        # just create payment
+        model_payment_register = self.env['account.payment.register']
+        if not self.user_has_groups('account.group_account_invoice'):
+            model_payment_register = model_payment_register.sudo()
 
         for invoice in self.invoice_ids:
             if invoice.payment_state not in ('in_payment', 'paid'):
-                self.env['account.payment.register'].with_context(
+                model_payment_register.with_context(
                     active_model='account.move',
                     active_id=invoice.id,
                     active_ids=invoice.ids
@@ -64,6 +70,7 @@ class MSCSaleOrder(models.Model):
                     'journal_id': sale_team.nonfiscal_journal_id.id,
                 })._create_payments()
 
+        # show receipt
         return self.invoice_ids[0].action_print_receipt()
 
     def action_print_receipt(self):
