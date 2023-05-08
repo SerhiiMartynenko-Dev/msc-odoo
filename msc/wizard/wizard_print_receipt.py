@@ -128,7 +128,11 @@ class MSCPrintReceiptWizard(models.TransientModel):
                     'writeoff_label': _("Transfer commission"),
                 })
 
-            self.env['account.payment.register'].with_context(
+            model_payment_register = self.env['account.payment.register']
+            if not self.user_has_groups('account.group_account_invoice'):
+                model_payment_register = model_payment_register.sudo()
+
+            model_payment_register.with_context(
                 active_model='account.move',
                 active_id=invoice.id,
                 active_ids=invoice.ids,

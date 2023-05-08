@@ -31,15 +31,16 @@ class MSCAccountMove(models.Model):
     #
     def action_print_receipt(self):
         self.ensure_one()
+        self_sudo = self.sudo()     # used for salesman
 
         if self.move_type != 'out_invoice' or self.payment_state not in ('paid', 'in_payment'):
             raise UserError(_("Receipt not paid yet"))
 
-        if self.kw_checkbox_receipt_ids:
+        if self_sudo.kw_checkbox_receipt_ids:
             return {
                 'type': 'ir.actions.act_url',
                 'target': 'new',
-                'url': self.kw_checkbox_receipt_ids[0].png_url,
+                'url': self_sudo.kw_checkbox_receipt_ids[0].png_url,
             }
         else:
             return {
